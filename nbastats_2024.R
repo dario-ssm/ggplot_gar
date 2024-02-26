@@ -321,3 +321,29 @@ shooting_percentages_raincloud_v2<- ggplot(all_percentages, aes(x = metric,
   facet_wrap(~metric, scales = "free")
 shooting_percentages_raincloud_v2
 
+## 4. Scatterplots ----
+
+#### a) ¿Is there a relationship between % field goals and count_wins?----
+
+ggplot(data = season_average_data,
+                                  aes(x = pctfg,
+                                      y = count_wins))+
+  geom_point()
+  
+pctfg_countwins_scatter <- ggplot(data = season_average_data,
+                                  aes(x = pctfg,
+                                      y = count_wins))+
+  geom_point()+
+  geom_smooth(method = "lm")+
+  ggrepel::geom_label_repel(aes(label = nameTeam))
+pctfg_countwins_scatter
+#### b) ¿Is there a relationship between three attempts and count_wins?----
+
+threes_countwins_scatter <- ggplot(data = season_average_data,
+                                  aes(x = fg3a,
+                                      y = count_wins))+
+  geom_point()+
+  geom_smooth(method = "lm")
+
+threes_countwins_scatter
+
