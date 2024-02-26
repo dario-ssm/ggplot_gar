@@ -124,7 +124,7 @@ pct_all <- plot_grid(my_title,
                      nrow = 3, rel_heights = c(0.1, 0.1, 1))
 pct_all
 
-## 2. Comparative plots ----
+## 2. Comparative barplots ----
 
 #### a) Teams classification based on wins count ----
 
@@ -167,19 +167,157 @@ clas_teams_color_threes <- ggplot(data = season_average_data, aes(x = fct_reorde
   scale_fill_viridis_c()+
   coord_flip()
 
+#### b) Classified by conferences ----
+
 # divide it by conference 
 clas_teams_color_threes <- ggplot(data = season_average_data, aes(x = fct_reorder(nameTeam, count_wins),
                                                                   y = count_wins))+
   geom_bar(stat = "identity",
            aes(fill = fg3a))+
   scale_fill_viridis_c()+
+  labs(y = "Number of wins",
+       x = "Teams Ranking",
+       fill = "Number of 3's attempts",
+       caption = "Source: Basketball Reference")+
   coord_flip()+
   facet_wrap(~conference, scales = "free_y")+
-  theme(legend.position = "bottom")+
-  labs(x = "Number of wins",
-       y = "Teams Ranking",
-       fill = "Number of 3's attempts",
-       caption = "Source: Basketball Reference")
+  theme(legend.position = "bottom")
+  
 
 clas_teams_color_threes 
+
+## 3. Comparative distributions ----
+
+#### a) boxplots ----
+
+all_teams_averages <- season_average_data |> 
+  pivot_longer(cols = 2:22,
+               names_to = "metric",
+               values_to = "score") 
+# |> 
+#   group_by(metric) |> 
+#   summarise(mean = mean(score),
+#             st_dev = sd(score),
+#             se = st_dev/sqrt(30))
+
+## boxplots of percentages
+all_percentages <- all_teams_averages |>
+  filter(metric %in% c("pct3", "pct2", "pctfg", "pctft"))
+
+shooting_percentages_boxplots <- ggplot(all_percentages, aes(x = metric,
+                                                             y = score))+
+  geom_boxplot()
+
+# let's customize a little bit
+
+shooting_percentages_boxplots <- ggplot(all_percentages, aes(x = metric,
+                                                             y = score))+
+  geom_boxplot(aes(fill = metric), color = "gray37")+
+  ggthemes::theme_clean()+
+  scale_fill_manual(values = c("#C16B76", "#8D5268", "#749DA3","#D8988F"))+
+  theme(legend.position = "none")+
+  labs(x = "Shooting metric",
+       y = "Percentage",
+       title = "Shooting Percentages NBA Teams",
+       subtitle = "Season 23/24 (60 games played)",
+       caption = "Source: Basketball Reference")
+
+shooting_percentages_boxplots
+
+#### b) violinplots ----
+
+shooting_percentages_violin <- ggplot(all_percentages, aes(x = metric,
+                                                             y = score))+
+  geom_violin(aes(fill = metric), color = "gray37", trim = F,
+              draw_quantiles = T)+
+  ggthemes::theme_clean()+
+  scale_fill_manual(values = c("#C16B76", "#8D5268", "#749DA3","#D8988F"))+
+  theme(legend.position = "none")+
+  labs(x = "Shooting metric",
+       y = "Percentage",
+       title = "Shooting Percentages NBA Teams",
+       subtitle = "Season 23/24 (60 games played)",
+       caption = "Source: Basketball Reference")
+shooting_percentages_violin
+
+#### c) raincloud plots ----
+shooting_percentages_raincloud<- ggplot(all_percentages, aes(x = metric,
+                                                           y = score, fill = metric))+
+  ggdist::stat_dist_halfeye(adjust = .5, width = .9, 
+                            .width = 0.01,
+                            justification = -0.05,
+                            point_color = NA)+
+  ggdist::stat_dots(
+    side = "left", 
+    justification = 1.01,
+    binwidth = .3)+ 
+  geom_boxplot(width = .2,
+               outlier.shape = NA,
+               color = "gray32",
+               fill = "gray99", 
+               alpha = .7)+
+  ggthemes::theme_clean()+
+  scale_fill_manual(values = c("#C16B76", "#8D5268", "#749DA3","#D8988F"))+
+  theme(legend.position = "none")+
+  labs(x = "Shooting metric",
+       y = "%",
+       title = "Shooting Percentages NBA Teams",
+       subtitle = "Season 23/24 (60 games played)",
+       caption = "Source: Basketball Reference")
+  coord_flip()
+shooting_percentages_raincloud
+
+## same but divide by conference
+shooting_percentages_raincloud<- ggplot(all_percentages, aes(x = metric,
+                                                             y = score, fill = metric))+
+  ggdist::stat_dist_halfeye(adjust = .5, width = .9, 
+                            .width = 0.01,
+                            justification = -0.05,
+                            point_color = NA)+
+  ggdist::stat_dots(
+    side = "left", 
+    justification = 1.01,
+    binwidth = .3)+ 
+  geom_boxplot(width = .2,
+               outlier.shape = NA,
+               color = "gray32",
+               fill = "gray99", 
+               alpha = .7)+
+  ggthemes::theme_clean()+
+  scale_fill_manual(values = c("#C16B76", "#8D5268", "#749DA3","#D8988F"))+
+  theme(legend.position = "none")+
+  labs(x = "Shooting metric",
+       y = "%",
+       title = "Shooting Percentages NBA Teams",
+       subtitle = "Season 23/24 (60 games played)",
+       caption = "Source: Basketball Reference")+
+  coord_flip()+
+  facet_wrap(~conference)
+shooting_percentages_raincloud
+
+shooting_percentages_raincloud_v2<- ggplot(all_percentages, aes(x = metric,
+                                                             y = score, fill = conference))+
+  ggdist::stat_dist_halfeye(adjust = .5, width = .9, 
+                            .width = 0.01,
+                            justification = -0.05,
+                            point_color = NA,
+                            alpha = 0.6)+
+  ggdist::stat_dots(
+    side = "left", 
+    justification = 1.01,
+    binwidth = .1)+ 
+  geom_boxplot(width = .2,
+               outlier.shape = NA,
+               alpha = .6 )+
+  theme_bw()+
+  scale_fill_manual(values = c("#C16B76", "#749DA3"))+
+  theme(legend.position = "none")+
+  labs(x = "Shooting metric",
+       y = "%",
+       title = "Shooting Percentages NBA Teams",
+       subtitle = "Season 23/24 (60 games played)",
+       caption = "Source: Basketball Reference")+
+  coord_flip()+
+  facet_wrap(~metric, scales = "free")
+shooting_percentages_raincloud_v2
 
