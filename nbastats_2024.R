@@ -333,17 +333,140 @@ ggplot(data = season_average_data,
 pctfg_countwins_scatter <- ggplot(data = season_average_data,
                                   aes(x = pctfg,
                                       y = count_wins))+
-  geom_point()+
+  geom_point(aes(size = fg3a), alpha = .7)+
   geom_smooth(method = "lm")+
   ggrepel::geom_label_repel(aes(label = nameTeam))
 pctfg_countwins_scatter
+
 #### b) ¿Is there a relationship between three attempts and count_wins?----
 
 threes_countwins_scatter <- ggplot(data = season_average_data,
                                   aes(x = fg3a,
                                       y = count_wins))+
   geom_point()+
-  geom_smooth(method = "lm")
+  geom_smooth(method = "lm")+
+  ggthemes::theme_few()
 
 threes_countwins_scatter
+
+#### c) Which players have worst ratio assists/turnovers? ----
+
+players_data_pergame <- gamedata |>
+  select(namePlayer, fgm, fga, fg3m, fg3a, fg2m, fg2a,tov, 
+         pts,blk, stl, ast, treb, fta, ftm, minutes) |>
+  group_by(namePlayer) |> 
+  summarise_all(mean)
+
+# draw a line in slope = 1
+ggplot(data = players_data_pergame,
+                                   aes(x = tov,
+                                       y = ast))+
+  geom_point(size = 2)+
+  geom_smooth(method = "lm")+
+  ggthemes::theme_few()
+
+# how can we avoid overlapping?
+turnovers_assists_scatter <- ggplot(data = players_data_pergame,
+                                    aes(x = tov,
+                                        y = ast))+
+  geom_point(aes(size = pts),
+             alpha = .45)+
+  geom_smooth(method = "lm")+
+  ggthemes::theme_few()+
+  ggrepel::geom_label_repel(aes(label = namePlayer))
+
+# how if we want to highlight the top ten?
+mvp_tracker <- c("Nikola Jokic", "Shai Gilgeous-Alexander", "Giannis Antetokounmpo", 
+                 "Luka Doncic", "Jayson Tatum", "Domantas Sabonis", "Donovan Mitchell",
+                 "Tyrese Haliburton", "Anthony Davis", "Jalen Brunson")
+
+players_data_pergame_highlight <-  players_data_pergame |> 
+  mutate(colorado = if_else(namePlayer %in% mvp_tracker,
+                            "#BB673A",
+                            "#60615B"))
+
+turnovers_assists_scatter <- ggplot(data = players_data_pergame_highlight,
+                                    aes(x = tov,
+                                        y = ast))+
+  geom_point(aes(size = pts,
+                 color = colorado),
+             alpha = .35)+
+  geom_smooth(method = "lm",
+              color = "darkcyan", 
+              fill = "turquoise3")+
+  geom_abline(intercept = 0, slope = 1, color = "#C16B76")+
+  ggthemes::theme_few()+
+  ggrepel::geom_label_repel(aes(label = namePlayer,
+                                color = colorado))+
+  scale_color_identity()
+
+
+turnovers_assists_scatter
+
+#### d) is there a nonlinear relationship between minutes played and points made due to players getting tired? ----
+## let's take four top scorer players:
+per_game_scorers <- gamedata |> 
+  filter(namePlayer %in% c("Joel Embiid", "Luka Doncic",
+                           "Shai Gilgeous-Alexander","Giannis Antetokounmpo",
+                           "Donovan Mitchell", "Kevin Durant", "Jalen Brunson",
+                           "Stephen Curry", "Devin Booker", "Jayson Tatum")) |> 
+  select(namePlayer, idGame, dateGame, pts, minutes)
+
+
+minutes_points_scorers <- ggplot(data = per_game_scorers,
+                                    aes(x = minutes,
+                                        y = pts))+
+  geom_point(alpha = .35)+
+  geom_smooth(method = "loess",
+              color = "darkcyan", 
+              fill = "#BB673A")+
+  ggthemes::theme_few()
+minutes_points_scorers
+
+minutes_points_scorers_facet <- ggplot(data = per_game_scorers,
+                                       aes(x = minutes,
+                                           y = pts))+
+  geom_point(alpha = .35)+
+  geom_smooth(method = "loess",
+              color = "darkcyan", 
+              fill = "#BB673A")+
+  facet_wrap(~namePlayer, scales = "free")+
+  theme_bw()
+
+minutes_points_scorers_facet
+
+## all players?
+per_game_scorers_all <- gamedata |> 
+  select(namePlayer, idGame, pts, minutes)
+
+ggplot(data = per_game_scorers_all,
+                                       aes(x = minutes,
+                                           y = pts))+
+  geom_point(alpha = .35)+
+  geom_smooth(method = "loess",
+              color = "darkcyan", 
+              fill = "#BB673A")+
+  theme_bw()
+       
+
+minutes_points_scorers_all <- ggplot(data = per_game_scorers_all,
+                                     aes(x = minutes,
+                                         y = pts))+
+  geom_point(alpha = .05, position = position_jitter(width = 0.5, height = 0.5),
+             color = "#E3AF4A")+
+  geom_smooth(method = "loess",
+              color = "#D5ADCD", 
+              fill = "#C16B76")+
+  ggdark::dark_theme_bw()
+minutes_points_scorers_all           
+
+#### e) line points per game ----
+
+per_game_scorers
+
+ggplot(data = per_game_scorers, aes(y = pts, x  = dateGame))+
+  geom_point(color = "darkcyan")+
+  geom_line(color = "darkcyan", linetype = "dashed")+
+  facet_wrap(~namePlayer)+
+  theme_bw()
 
