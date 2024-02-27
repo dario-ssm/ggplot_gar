@@ -55,7 +55,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#ejercicio-1.-estudiar-los-tiros-libres-intentados-por-partido" id="toc-ejercicio-1.-estudiar-los-tiros-libres-intentados-por-partido" class="nav-link" data-scroll-target="#ejercicio-1.-estudiar-los-tiros-libres-intentados-por-partido">Ejercicio 1. Estudiar los tiros libres intentados por partido:</a></li>
   <li><a href="#ejercicio-2.-figura-compuesta-de-porcentajes-de-tiros-triples-tiros-de-dos-tiros-libres" id="toc-ejercicio-2.-figura-compuesta-de-porcentajes-de-tiros-triples-tiros-de-dos-tiros-libres" class="nav-link" data-scroll-target="#ejercicio-2.-figura-compuesta-de-porcentajes-de-tiros-triples-tiros-de-dos-tiros-libres">Ejercicio 2. Figura compuesta de porcentajes de tiros (triples, tiros de dos, tiros libres)</a></li>
   </ul></li>
-  <li><a href="#comparar-variables-categóricas" id="toc-comparar-variables-categóricas" class="nav-link" data-scroll-target="#comparar-variables-categóricas">4. Comparar variables categóricas</a></li>
+  <li><a href="#comparar-variables-categóricas" id="toc-comparar-variables-categóricas" class="nav-link" data-scroll-target="#comparar-variables-categóricas">4. Comparar variables categóricas</a>
+  <ul class="collapse">
+  <li><a href="#barplots" id="toc-barplots" class="nav-link" data-scroll-target="#barplots">Barplots</a>
+  <ul class="collapse">
+  <li><a href="#ejemplo-1.-clasificación-de-equipos-por-número-de-victorias" id="toc-ejemplo-1.-clasificación-de-equipos-por-número-de-victorias" class="nav-link" data-scroll-target="#ejemplo-1.-clasificación-de-equipos-por-número-de-victorias">Ejemplo 1. Clasificación de equipos por número de victorias</a></li>
+  <li><a href="#ejercicio-3.-clasificación-de-mejores-equipos-de-cada-conferencia" id="toc-ejercicio-3.-clasificación-de-mejores-equipos-de-cada-conferencia" class="nav-link" data-scroll-target="#ejercicio-3.-clasificación-de-mejores-equipos-de-cada-conferencia">Ejercicio 3. Clasificación de mejores equipos de cada conferencia:</a></li>
+  </ul></li>
+  </ul></li>
   <li><a href="#comparar-variables-cuantitativas" id="toc-comparar-variables-cuantitativas" class="nav-link" data-scroll-target="#comparar-variables-cuantitativas">5. Comparar variables cuantitativas</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="guion_practica.md"><i class="bi bi-file-code"></i>Github (GFM)</a></li></ul></div></nav>
@@ -168,6 +175,60 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="comparar-variables-categóricas" class="level1">
 <h1>4. Comparar variables categóricas</h1>
+<p>Para comparar variables categóricas podemos utilizar distintos tipos de gráficas. Las más comunes son <em>gráficos de barras</em> o <em>barplots</em>, <em>gráficos de caja-bigotes</em> o <em>boxplots</em> y sus variantes.</p>
+<section id="barplots" class="level2">
+<h2 class="anchored" data-anchor-id="barplots">Barplots</h2>
+<p>Son las más utilizadas aunque tengan ciertos problemas que luego veremos.</p>
+<p>Con <em>ggplot</em>, utilizaremos la función <code>geom_barplot()</code> con el argumento <code>stat = "identity"</code> .</p>
+<section id="ejemplo-1.-clasificación-de-equipos-por-número-de-victorias" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-1.-clasificación-de-equipos-por-número-de-victorias">Ejemplo 1. Clasificación de equipos por número de victorias</h3>
+<p>Vamos a ver el ejemplo más básico sin ningún argumento más.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="guion_practica_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Esto no nos indica demasiado. Vamos a mejorar la gráfica:</p>
+<ol type="1">
+<li>Intercambiar los ejes para que se lean los equipos con <code>coord_flip()</code></li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="guion_practica_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ol start="2" type="1">
+<li><p>Ordenar de menor a mayor con la función <code>fct_reorder</code> del paquete <code>forcats</code>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="guion_practica_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ol start="3" type="1">
+<li><p>Colorear por número de victorias (no se muestra)</p></li>
+<li><p>Colorear por porcentaje de triples</p></li>
+<li><p>Personalizar ejes</p></li>
+<li><p>Dividir por conferencias Este y Oeste</p></li>
+</ol></li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="guion_practica_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="ejercicio-3.-clasificación-de-mejores-equipos-de-cada-conferencia" class="level3">
+<h3 class="anchored" data-anchor-id="ejercicio-3.-clasificación-de-mejores-equipos-de-cada-conferencia">Ejercicio 3. Clasificación de mejores equipos de cada conferencia:</h3>
+<p>Hacer una figura compuesta con la clasificación de cada conferencia (Este y Oeste) en las siguientes categorías.</p>
+<ul>
+<li><p>Porcentaje de acierto en triples <code>pct3</code></p></li>
+<li><p>Rebotes <code>treb</code></p></li>
+<li><p>Asistencias <code>ast</code></p></li>
+<li><p>Porcentaje de acierto en tiros de campo <code>pctfg</code></p></li>
+</ul>
+<p>Las barras deben estar coloreadas en función de la variable <em>puntos por partido</em> (<code>pts</code>).</p>
+</section>
+</section>
 </section>
 <section id="comparar-variables-cuantitativas" class="level1">
 <h1>5. Comparar variables cuantitativas</h1>

@@ -13,7 +13,7 @@ execute:
 editor: visual
 ---
 
-# 1. Introducción a la sintaxis de `ggplot2` 
+# 1. Introducción a la sintaxis de `ggplot2`
 
 # 2. Datos que utilizaremos en el guión
 
@@ -211,5 +211,82 @@ pct_all
 ```
 
 # 4. Comparar variables categóricas
+
+Para comparar variables categóricas podemos utilizar distintos tipos de gráficas. Las más comunes son *gráficos de barras* o *barplots*, *gráficos de caja-bigotes* o *boxplots* y sus variantes.
+
+## Barplots
+
+Son las más utilizadas aunque tengan ciertos problemas que luego veremos.
+
+Con *ggplot*, utilizaremos la función `geom_barplot()` con el argumento `stat = "identity"` .
+
+### Ejemplo 1. Clasificación de equipos por número de victorias
+
+Vamos a ver el ejemplo más básico sin ningún argumento más.
+
+```{r}
+ggplot(data = season_average_data, aes(x = nameTeam,
+                                       y = count_wins))+
+  geom_bar(stat = "identity")
+```
+
+Esto no nos indica demasiado. Vamos a mejorar la gráfica:
+
+1.  Intercambiar los ejes para que se lean los equipos con `coord_flip()`
+
+```{r}
+ggplot(data = season_average_data, aes(x = nameTeam,
+                                       y = count_wins))+
+  geom_bar(stat = "identity")+
+  coord_flip()
+```
+
+2.  Ordenar de menor a mayor con la función `fct_reorder` del paquete `forcats`.
+
+    ```{r}
+    ggplot(data = season_average_data, aes(x = fct_reorder(nameTeam, count_wins),
+                                           y = count_wins))+
+      geom_bar(stat = "identity")+
+      coord_flip()
+    ```
+
+     3. Colorear por número de victorias (no se muestra)
+
+    4.  Colorear por porcentaje de triples
+    5.  Personalizar ejes
+    6.  Dividir por conferencias Este y Oeste
+
+```{r}
+clas_teams_color_threes <- ggplot(data = season_average_data, aes(x = fct_reorder(nameTeam, count_wins),
+                                                                  y = count_wins))+
+  geom_bar(stat = "identity",
+           aes(fill = fg3a))+
+  scale_fill_viridis_c()+
+  labs(y = "Number of wins",
+       x = "Teams Ranking",
+       fill = "Number of 3's attempts",
+       title = "Classification",
+       subtitle = "NBA Season 2023-2024",
+       caption = "Source: Basketball Reference")+
+  coord_flip()+
+  facet_wrap(~conference, scales = "free_y")+
+  theme_clean()+
+  theme(legend.position = "bottom")
+clas_teams_color_threes
+```
+
+### Ejercicio 3. Clasificación de mejores equipos de cada conferencia:
+
+Hacer una figura compuesta con la clasificación de cada conferencia (Este y Oeste) en las siguientes categorías.
+
+-   Porcentaje de acierto en triples `pct3`
+
+-   Rebotes `treb`
+
+-   Asistencias `ast`
+
+-   Porcentaje de acierto en tiros de campo `pctfg`
+
+Las barras deben estar coloreadas en función de la variable *puntos por partido* (`pts`).
 
 # 5. Comparar variables cuantitativas

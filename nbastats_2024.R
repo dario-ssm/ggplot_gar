@@ -1,7 +1,7 @@
 #devtools::install_github("abresler/nbastatR")
 library(nbastatR)
 library(tidyverse)
-
+library(here)
 Sys.setenv("VROOM_CONNECTION_SIZE" = 131072 * 2)
 
 gamedata <- game_logs(seasons = 2024)
