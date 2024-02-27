@@ -42,7 +42,7 @@ season_average_data <- gamedata |>
          count_wins = count_wins*n_games) |> 
   mutate(conference = case_when(nameTeam %in% eastern_conference ~ "Eastern Conference",
                                 nameTeam %in% western_conference ~ "Western Conference"))
-
+write_rds(season_average_data, here("season_average_data.rds"))
 
 ## 1. Distribution plots ----
 
@@ -193,7 +193,9 @@ clas_teams_color_threes
 all_teams_averages <- season_average_data |> 
   pivot_longer(cols = 2:22,
                names_to = "metric",
-               values_to = "score") 
+               values_to = "score")
+write_rds(all_teams_averages, here("all_teams_averages.rds"))
+
 # |> 
 #   group_by(metric) |> 
 #   summarise(mean = mean(score),
@@ -356,6 +358,9 @@ players_data_pergame <- gamedata |>
          pts,blk, stl, ast, treb, fta, ftm, minutes) |>
   group_by(namePlayer) |> 
   summarise_all(mean)
+
+write_rds(players_data_pergame, here("players_data_pergame.rds"))
+
 
 # draw a line in slope = 1
 ggplot(data = players_data_pergame,

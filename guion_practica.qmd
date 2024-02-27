@@ -1,0 +1,215 @@
+---
+title: "Data Visualization in R"
+subtitle: "Asignatura de INICIACIÓN PRÁCTICA A LA GESTIÓN DE DATOS AMBIENTALES CON R (100303)"
+date: "`r Sys.Date()`"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+  gfm: default
+execute: 
+  warning: false
+  echo: false  
+editor: visual
+---
+
+# 1. Introducción a la sintaxis de `ggplot2` 
+
+# 2. Datos que utilizaremos en el guión
+
+Para esta práctica utilizamos datos de la NBA de la temporada 2023/24 (en curso) a través del paquete `nbastatR` . Será necesario también tener instalados los paquetes de `tidyverse` y algunos paquetes adicionales para ayudar a la visualización: `ggdist` , `ggrepel`, `cowplot` , `ggthemes` y `ggdark` .
+
+Después de instalarlos, cargamos las bibliotecas:
+
+```{r}
+library(tidyverse)
+library(here)
+library(nbastatR)
+library(ggdist)
+library(ggrepel)
+library(cowplot)
+library(ggthemes)
+library(ggdark)
+```
+
+Y cargamos las diferentes bases de datos que vamos a utilizar del repositorio.
+
+```{r}
+players_data_pergame <- read_rds(here("players_data_pergame.rds"))
+teams_vert_data <- read_rds(here("all_teams_averages.rds"))
+season_average_data <- read_rds(here("season_average_data.rds"))
+
+```
+
+# 3. Estudiar distribuciones de nuestras variables
+
+Estudiar la composciión y distribución de nuestras variables es fundamental antes de cualquier otro análisis. Esto implica ver qué rango de valores adopta, qué frecuencia toma cada valor y qué función de distribución se ajusta mejor a nuestros datos (ej. normal, poisson, log-normal, etc).
+
+Para ello, lo más útil son los **histogramas**.
+
+### Ejemplo 1. Porcentaje de triples:
+
+Vamos a usar la base de datos `season_average_data` (echadle un ojo primero al aspecto que tiene). Vamos a ver cómo se distribuyen los porcentajes de acierto en triples en todos los equipos.
+
+Buscamos un histograma: `geom_histogram()`
+
+```{r}
+ggplot(data = season_average_data, aes(x = pct3))+
+  geom_histogram()
+```
+
+Nos hacemos ya una idea de valores. Vamos a ajustarlo un poco para llegar a la siguiente figura:
+
+```{r}
+three_pointers_perc_hist <- ggplot(data = season_average_data, aes(x = pct3))+
+  geom_histogram(fill = "#e75719", color = "#08052f",
+                 alpha = .7,bins = 10)
+three_pointers_perc_hist
+
+```
+
+Y ahora vamos a personalizar un poco:
+
+-   Añadir una línea vertical en la media y en la mediana de acierto en triples
+
+-   Cambiar los nombres de los ejes a: "% Acierto en Triples" y "Frecuencia"
+
+-   Vamos a usar un tema del paquete `ggthemes`
+
+```{r}
+mean_pct3 <- mean(season_average_data$pct3)
+median_pct3 <- median(season_average_data$pct3)
+
+three_pointers_perc_hist+
+  geom_vline(xintercept = mean_pct3, 
+             linetype = "dashed",
+             color = "#08052f")+
+  geom_vline(xintercept = median_pct3,
+           linetype = "dotted",
+           color = "#241aa5")+
+  labs(x = "% Acierto en Triples",
+       y = "Frecuencia",
+       )+
+  theme_clean()
+
+```
+
+Podemos hacer exactamente lo mismo con una curva de frecuencia continua (*density*) en vez de discreta (*bins*). Lo hacemos con `geom_density()`
+
+```{r}
+three_pointers_perc_density <- ggplot(data = season_average_data, aes(x = pct3))+
+  geom_density(fill = "#e75719", color = "#08052f",
+                 alpha = .7)+
+  geom_vline(xintercept = mean_pct3, 
+             linetype = "dashed",
+             color = "#08052f")+
+  geom_vline(xintercept = median_pct3,
+           linetype = "dotted",
+           color = "#241aa5")+
+  labs(x = "% Acierto en Triples",
+       y = "Frecuencia",
+       )+
+  theme_solarized()
+three_pointers_perc_density
+```
+
+### Ejemplo 2. Figuras compuestas:
+
+Vamos a juntar en una misma figura un histograma de triples encestados (`fg3m`) y de tiros de campo intentados (`fga`). Lo haremos con `cowplot`. Para ello, los pasos son:
+
+1.  Diseñar un título con `ggdraw() + draw_label()`
+2.  Diseñar la figura de `fg3m`
+3.  Diseñar la figura de `fga`
+4.  Unir la fila de figuras con `plot_grid()`
+5.  Componer la figura total con `plot_grid()`
+
+```{r}
+my_title <- ggdraw()+
+  draw_label("Datos sobre tiro")
+
+fg3m_attempts_hist <- ggplot(data = season_average_data, aes(x = fg3m))+
+  geom_histogram(fill = "#70354B", color = "#08052f", bins = 8, alpha = 0.67)+
+  labs(x = "Field goal 3's attempts",
+       y = "Frequency",
+       title = "Distribution of Field Goal Threes Attempts per game",
+       subtitle = "NBA Season 2023-2024 (60 games)",
+       caption = "Source: Basketball Reference")+
+  theme_bw()
+
+field_goal_attempts_hist <- ggplot(data = season_average_data, aes(x = fga))+
+  geom_histogram(fill = "#1E7C6A", color = "#08052f", bins = 8, alpha = 0.67)+
+  labs(x = "Field goal attempts",
+       y = "Frequency",
+       title = "Distribution of Field Goal Attempts per game",
+       subtitle = "NBA Season 2023-2024 (60 games)",
+       caption = "Source: Basketball Reference")+
+  theme_bw()
+
+fg_row <- plot_grid(fg3m_attempts_hist, field_goal_attempts_hist, nrow = 1)
+plot_grid(my_title,
+          fg_row,
+          nrow = 2, rel_heights = c(0.1, 1))
+```
+
+### Ejercicio 1. Estudiar los tiros libres intentados por partido:
+
+Esta variable se llama `fta` (*free throw attempts*) en la base de datos de `season_average_data` . Hay que lograr una figura como la siguiente: ¿cómo lo haríais?
+
+```{r}
+freethrow_attempts_hist <- ggplot(data = season_average_data, aes(x = fta))+
+  geom_histogram(fill = "#e75719", color = "#08052f", bins = 8, alpha = 0.67)+
+  labs(x = "Free Throw attempts",
+       y = "Frequency",
+       title = "Distribution of Free Throw Attempts per game",
+       subtitle = "NBA Season 2023-2024 (60 games)",
+       caption = "Source: Basketball Reference")+
+  theme_bw()
+
+freethrow_attempts_hist  
+```
+
+### Ejercicio 2. Figura compuesta de porcentajes de tiros (triples, tiros de dos, tiros libres)
+
+```{r}
+
+
+fg_pct_3 <- ggplot(data = season_average_data, aes(x = pct3))+
+  geom_histogram(fill = "#8D5268", color = "#60615B", bins = 8, alpha = 0.67)+
+  labs(x = "% 3's",
+       y = "Frequency",
+       caption = " ")+
+  theme_bw()
+
+fg_pct_2 <- ggplot(data = season_average_data, aes(x = pct2))+
+  geom_histogram(fill = "#C16B76", color = "#60615B", bins = 8, alpha = 0.67)+
+  labs(x = "% 2's",
+       y = NULL,
+       caption = " ")+
+  theme_bw()
+
+fg_pct_ft <- ggplot(data = season_average_data, aes(x = pctft))+
+  geom_histogram(fill = "#D8988F", color = "#60615B", bins = 8, alpha = 0.67)+
+  labs(x = "% Free Throws",
+       y = NULL,
+       caption = "Source: Basketball Reference")+
+  theme_bw()
+
+library(cowplot)
+my_title <- ggdraw()+
+  draw_label("Distribution of Field Goal Attempts per game",
+             fontface = 'bold')
+my_subtitle <- ggdraw()+
+  draw_label("NBA Season 2023-2024 (60 games)", fontface = "plain")
+
+plots_row <- plot_grid(fg_pct_3, fg_pct_2, fg_pct_ft, nrow = 1)
+
+pct_all <- plot_grid(my_title,
+                     my_subtitle,
+                     plots_row,
+                     nrow = 3, rel_heights = c(0.1, 0.1, 1))
+pct_all
+```
+
+# 4. Comparar variables categóricas
+
+# 5. Comparar variables cuantitativas
