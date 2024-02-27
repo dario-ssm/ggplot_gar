@@ -2,11 +2,9 @@
 title: "Data Visualization in R"
 subtitle: "Asignatura de INICIACIÓN PRÁCTICA A LA GESTIÓN DE DATOS AMBIENTALES CON R (100303)"
 date: "`r Sys.Date()`"
-format:
-  html:
-    toc: true
-    toc-depth: 3
-  gfm: default
+output:
+  md_document:
+    variant: gfm
 execute: 
   warning: false
   echo: false  
@@ -250,10 +248,12 @@ ggplot(data = season_average_data, aes(x = nameTeam,
       coord_flip()
     ```
 
-     3. Colorear por número de victorias (no se muestra)
+    3.  Colorear por número de victorias (no se muestra)
 
     4.  Colorear por porcentaje de triples
+
     5.  Personalizar ejes
+
     6.  Dividir por conferencias Este y Oeste
 
 ```{r}
