@@ -214,7 +214,7 @@ Para comparar variables categóricas podemos utilizar distintos tipos de gráfic
 
 Son las más utilizadas aunque tengan ciertos problemas que luego veremos.
 
-Con *ggplot*, utilizaremos la función `geom_barplot()` con el argumento `stat = "identity"` .
+Con *ggplot*, utilizaremos la función `geom_bar()` con el argumento `stat = "identity"` .
 
 ### Ejemplo 1. Clasificación de equipos por número de victorias
 
@@ -583,7 +583,7 @@ turnovers_assists_scatter <- ggplot(data = players_data_pergame_highlight,
 turnovers_assists_scatter
 ```
 
-###  Ejemplo 3. Relación entre minutos jugados y puntos anotados por cada jugador
+### Ejemplo 3. Relación entre minutos jugados y puntos anotados por cada jugador
 
 Cabe esperar que la relación no sea lineal: lo normal es que con más minutos aumenten los puntos por partido de cada jugador; sin embargo, puede saturarse la curva (por cansancio en partidos muy largos), y puede que los jugadores con pocos minutos apenas anoten porque tengan roles muy secundarios en sus equipos. Vamos a utilizar una regresión *loess* en vez de utilizar un modelo lineal.
 
