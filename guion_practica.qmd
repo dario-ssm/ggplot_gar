@@ -237,12 +237,13 @@ ggplot(data = season_average_data, aes(x = nameTeam,
   coord_flip()
 ```
 
-2.  Ordenar de menor a mayor con la función `fct_reorder` del paquete `forcats`.
+2.  Ordenar de menor a mayor con la función `fct_reorder` del paquete `forcats`. Y colorear en función de la conferencia
 
     ```{r}
     ggplot(data = season_average_data, aes(x = fct_reorder(nameTeam, count_wins),
                                            y = count_wins))+
-      geom_bar(stat = "identity")+
+      geom_bar(stat = "identity",
+               aes(fill = conference))+
       coord_flip()
     ```
 
@@ -273,7 +274,41 @@ clas_teams_color_threes <- ggplot(data = season_average_data, aes(x = fct_reorde
 clas_teams_color_threes
 ```
 
-### Ejercicio 3. Clasificación de mejores equipos de cada conferencia:
+### Ejemplo 2. Barras y errores:
+
+Vamos a utilizar la base de datos `all_teams_averages` :
+
+```{r}
+DT::datatable(all_teams_averages)
+```
+
+A continuación, vamos a representar un gráfico de barras que represente el porcentaje de triples en cada una de las conferencias, donde los errores de las barras sean la desviación típica. Para ello, primero vamos a filtrar la desviación típica para el porcentaje de triples en cada conferencia.
+
+```{r}
+three_perc_error_all <- all_teams_averages |> 
+  filter(metric == "pct3") |> 
+  group_by(conference) |> 
+  summarise(sd_threes = sd(score),
+            mean_threes = mean(score))
+head(three_perc_error_all, 10)
+```
+
+A continuación, vamos a plotear. Utilizaremos la función `geom_errorbar` para añadir las barras de error a las gráficas de barras
+
+```{r}
+ggplot(three_perc_error_all, aes(x = conference, y = mean_threes))+
+  geom_bar(stat = "identity", 
+           aes(fill = conference),
+           width = 0.5)+
+  geom_errorbar(aes(ymin = mean_threes - sd_threes,
+                    ymax = mean_threes + sd_threes),
+                color = "darkslategray", width = 0.2)+
+  theme_bw()+
+  theme(legend.position = "none")
+  
+```
+
+### Ejercicio 1. Clasificación de mejores equipos de cada conferencia:
 
 Hacer una figura compuesta con la clasificación de cada conferencia (Este y Oeste) en las siguientes categorías.
 
@@ -287,4 +322,283 @@ Hacer una figura compuesta con la clasificación de cada conferencia (Este y Oes
 
 Las barras deben estar coloreadas en función de la variable *puntos por partido* (`pts`).
 
+## Boxplots
+
+Los *boxplots* mejoran la información de los barplots: ya no solo nos hablan de cuál es el valor promedio y su error, sino también de la distribución de parte de los datos.
+
+La geometría se denomina en *ggplot* `geom_boxplot`.
+
+### Ejemplo 3. Boxplots
+
+Volvamos a utilizar la base de datos de `all_teams_averages` . Vamos a dibujar un boxplot para cada porcentaje de tiro (% triples `pct3`, % tiros de dos `pct2`, % tiros de campo `pctfg` y % tiros libres `pctft` ). Ese filtrado lo hacemos aquí:
+
+```{r}
+all_percentages <- all_teams_averages |>
+  filter(metric %in% c("pct3", "pct2", "pctfg", "pctft"))
+DT::datatable(all_percentages)
+```
+
+Como vemos, tenemos una variable x llamada `metric` y otra variable y llamada `score`. El boxplot sería:
+
+```{r}
+
+shooting_percentages_boxplots <- ggplot(all_percentages, aes(x = metric,
+                                                             y = score))+
+  geom_boxplot()
+```
+
+### Ejercicio 2. Personalizar este plot
+
+Vamos a personalizar este gráfico:
+
+-   Añadir colores específicos en función de la métrica, utilizando `scale_color_manual()`.
+
+-   Añade títulos y fuente de los datos.
+
+-   Elimina la leyenda de la métrica.
+
+-   Divide el gráfico en dos *facets* por conferencias.
+
+-   Añade un tema periodístico
+
+```{r}
+
+# let's customize a little bit
+
+shooting_percentages_boxplots <- ggplot(all_percentages, aes(x = metric,
+                                                             y = score))+
+  geom_boxplot(aes(fill = metric), color = "gray67")+
+  theme_wsj()+
+  scale_fill_manual(values = c("#C16B76", "#8D5268", "#749DA3","#D8988F"))+
+  theme(legend.position = "none")+
+  facet_wrap(~conference)+
+  labs(x = "Shooting metric",
+       y = "Percentage",
+       title = "Shooting Percentages NBA Teams",
+       subtitle = "Season 23/24 (60 games played)",
+       caption = "Source: Basketball Reference")
+
+
+shooting_percentages_boxplots
+```
+
+## Violin plots:
+
+Los gráficos de violín son exactamente iguales que los boxplots pero, en lugar de mostrar una caja, muestra la curva de densidad de los datos reflejada de forma simétrica. Por tnato, no solo nos habla de dónde está el valor promedio y la mayoría de los datos sino de cómo se distribuye esa "mayoría" de datos.
+
+Utilizamos la función `geom_violin()` .
+
+### Ejercicio 3. Violin plots para los porcentajes de tiro sin dividir por conferencia
+
+Mismo ejercicio de antes pero con *violins*, usando un tema oscuro con `ggdark` y superponiendo por encima de los violines unos boxplots blancos semitransparentes. No dividas por conferencia.
+
+```{r}
+
+percentages_violin <- ggplot(all_percentages, aes(x = metric,
+                                                  y = score))+
+  geom_violin(aes(fill = metric), 
+              color = "gray37", 
+              trim = F,
+              draw_quantiles = T)+
+  ggdark::dark_theme_bw()+
+  scale_fill_manual(values = c("#C16B76", "#8D5268", "#749DA3","#D8988F"))+
+  geom_boxplot(fill = "white", 
+               alpha = 0.45, 
+               color = "gray37",
+               width = 0.3)+
+  theme(legend.position = "none")+
+  labs(x = "Shooting metric",
+       y = "Percentage",
+       title = "Shooting Percentages NBA Teams",
+       subtitle = "Season 23/24 (60 games played)",
+       caption = "Source: Basketball Reference")
+percentages_violin
+
+```
+
+## (Para ampliar): Raincloud plots
+
+Hay unos gráficos que combinan toda esta información de una sola vez: los *raincloud plots* (ahora verás por qué se llaman así). Estos gráficos muetran:
+
+-   El valor promedio
+
+-   La curva de densidad de la distribución
+
+-   Un conteo de frecuencia por puntos (similar al histograma)
+
+Se pueden combinar con un boxplot. Se realizan con el paquete `ggdist` y las funciones más útiles son `geom_halfeye()` para la "nube" y `geom_statdots()` para los puntos. Con un poco de customización, queda algo así:
+
+```{r, echo=TRUE}
+#### c) raincloud plots ----
+shooting_percentages_raincloud<- ggplot(all_percentages, aes(x = metric,
+                                                           y = score, fill = metric))+
+  ggdist::stat_dist_halfeye(adjust = .5, width = .9, 
+                            .width = 0.01,
+                            justification = -0.05,
+                            point_color = NA)+
+  ggdist::stat_dots(
+    side = "left", 
+    justification = 1.01,
+    binwidth = .3)+ 
+  geom_boxplot(width = .2,
+               outlier.shape = NA,
+               color = "gray32",
+               fill = "gray99", 
+               alpha = .7)+
+  ggthemes::theme_clean()+
+  scale_fill_manual(values = c("#C16B76", "#8D5268", "#749DA3","#D8988F"))+
+  theme(legend.position = "bottom")+
+  labs(x = "Shooting metric",
+       y = "%",
+       title = "Shooting Percentages NBA Teams",
+       subtitle = "Season 23/24 (60 games played)",
+       caption = "Source: Basketball Reference")+
+  coord_flip()
+shooting_percentages_raincloud
+
+```
+
 # 5. Comparar variables cuantitativas
+
+En la mayoría de estudios, sin embargo, lo que haremos será visualizar relaciones entre variables cuantitativas, lo que se conoce en general como *regresiones*.
+
+Algunos ejemplos serían: *abundancia \~ temperatura,* *diversidad \~ latitud, día_floración \~ temperatura_máxima*, etc.
+
+Para ello, lo más utilizado son los ***scatterplots*** o **diagramas de dispersión** combinados con líneas de tendencia.
+
+### Ejemplo 1. ¿Relación entre %fg y número de victorias?
+
+Partiendo de la base de datos anterior de `season_average_data`, nos preguntamos si existe una relación entre el porcentaje de acierto en los tiros a canasta y el número de victorias de un equipo.
+
+Cabe esperar que tengan una correlación positiva (a más acierto con los tiros, mayor número de victorias). Lo vamos a evaluar con un diagrama de puntos que tiene los siguientes elementos:
+
+-   Puntos: con la geometría `geom_point()`
+
+-   Tendencia: con la geometría `geom_smooth()`, ya sea con un argumento `method = "lm"` para una tendencia lineal (***l**inear **m**odel*) o una variable llamada *loess*.
+
+```{r}
+
+pctfg_countwins_scatter <- ggplot(data = season_average_data,
+                                  aes(x = pctfg,
+                                      y = count_wins))+
+  geom_point(color = "darkgrey")+
+  theme_few()+
+  geom_smooth(method = "lm")
+pctfg_countwins_scatter
+
+```
+
+Vamos a intentar arreglar el gráfico:
+
+-   Que el tamaño del punto sea en función del número de triples intentados, para ver qué relación existe entre estas dos variables y el número de triples que intenta un equipo (es decir, si a más triples intentados más victorias o mejores/peores porcentajes de tiro.
+
+-   Vamos a nombrar los puntos más relevantes para saber a qué equipo corresponden los puntos más destacados usando `ggrepel::`
+
+```{r}
+ggplot(data = season_average_data,
+                                  aes(x = pctfg,
+                                      y = count_wins))+
+  geom_point(aes(size = fg3a), alpha = .7, color = "darkcyan")+
+  geom_smooth(method = "lm")+
+  theme_bw()+
+  labs(x = "% Acierto en tiros de campo",
+       y = "Número de victorias",
+       size = "Triples intentados")+
+  ggrepel::geom_label_repel(aes(label = nameTeam),
+                            fill = "#7FD3C3", 
+                            alpha = .5)
+```
+
+### Ejercicio 1. ¿hay relación entre tiros intentados de triple y número de victorias?
+
+Es decir, ¿le interesa a un equipo tirar cuantos más triples mejor?
+
+### Ejercicio 2. Relación asistencias/pérdidas de cada jugador
+
+Vamos a utilizar la base de datos `players_data_pergame`.
+
+Queremos el siguiente gráfico (se muestra abajo) con:
+
+-   La identidad de los puntos más reseñables
+
+-   Añadir una línea que muestre el ratio 1:1 (una asistencia por cada pérdida)
+
+-   La transparencia del punto para evitar solapamientos
+
+-   El tamaño del punto en función del número de puntos por partido
+
+```{r}
+ggplot(data = players_data_pergame,
+                                    aes(x = tov,
+                                        y = ast))+
+  geom_point(aes(size = pts),
+             alpha = .3,
+             color = "darkcyan")+
+  geom_smooth(method = "lm")+
+  geom_abline(slope = 1, intercept = 0, color = "coral")+
+  ggthemes::theme_few()+
+  ggrepel::geom_label_repel(aes(label = namePlayer))+
+  labs(x = "Pérdidas de balón por partido",
+       y = "Asistencias por partido",
+       size = "Pts. por partido")
+
+```
+
+### (Para ampliar) Ejemplo 2. Subrayar elementos específicos
+
+Vamos a ejemplificar cómo podemos colorear los puntos que queramos específicamente. Para ello:
+
+1.  Seleccionamos los 10 jugadores mejor valorados de la temporada que queremos destacar en la gráfica.
+2.  Añadimos una columna llamada "colorado" con códigos de color: un código ("#codigo") para esos jugadores y otro código gris para el resto. Lo hacemos con función `if_else(condition, to do if true, todo if false)`.
+3.  Añadimos que el color del punto dependa de la columna `colorado` con `aes(color = colorado)`
+4.  Añadimos un `scale_color_identity()`
+
+```{r}
+# how if we want to highlight the top ten?
+mvp_tracker <- c("Nikola Jokic", "Shai Gilgeous-Alexander", "Giannis Antetokounmpo", 
+                 "Luka Doncic", "Jayson Tatum", "Domantas Sabonis", "Donovan Mitchell",
+                 "Tyrese Haliburton", "Anthony Davis", "Jalen Brunson")
+
+players_data_pergame_highlight <-  players_data_pergame |> 
+  mutate(colorado = if_else(namePlayer %in% mvp_tracker,
+                            "#BB673A",
+                            "#60615B"))
+
+turnovers_assists_scatter <- ggplot(data = players_data_pergame_highlight,
+                                    aes(x = tov,
+                                        y = ast))+
+  geom_point(aes(size = pts,
+                 color = colorado),
+             alpha = .35)+
+  geom_smooth(method = "lm",
+              color = "darkcyan", 
+              fill = "turquoise3")+
+  geom_abline(intercept = 0, slope = 1, color = "#C16B76")+
+  ggthemes::theme_few()+
+  ggrepel::geom_label_repel(aes(label = namePlayer,
+                                color = colorado))+
+  scale_color_identity()
+
+
+turnovers_assists_scatter
+```
+
+###  Ejemplo 3. Relación entre minutos jugados y puntos anotados por cada jugador
+
+Cabe esperar que la relación no sea lineal: lo normal es que con más minutos aumenten los puntos por partido de cada jugador; sin embargo, puede saturarse la curva (por cansancio en partidos muy largos), y puede que los jugadores con pocos minutos apenas anoten porque tengan roles muy secundarios en sus equipos. Vamos a utilizar una regresión *loess* en vez de utilizar un modelo lineal.
+
+Utilizaremos la base de datos `per_game_scorers_all` con Utilizaremos también un color negro de fondo. Para corregir el enorme solapamiento (son datos de cada jugador), además de la transparencia, moveremos un poquito los puntos aleatoriamente, lo que se conoce como *jittering* con el argumento `position = position_jitter()` y lo haremos en fondo negro para maximizar el impacto de la gráfica.
+
+```{r}
+minutes_points_scorers_all <- ggplot(data = per_game_scorers_all,
+                                     aes(x = minutes,
+                                         y = pts))+
+  geom_point(alpha = .1, position = position_jitter(width = 0.5, height = 0.5),
+             color = "#E3AF4A")+
+  geom_smooth(method = "loess",
+              color = "#D5ADCD", 
+              fill = "#C16B76")+
+  ggdark::dark_theme_bw()
+minutes_points_scorers_all           
+
+```

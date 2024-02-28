@@ -266,7 +266,7 @@ shooting_percentages_raincloud<- ggplot(all_percentages, aes(x = metric,
        y = "%",
        title = "Shooting Percentages NBA Teams",
        subtitle = "Season 23/24 (60 games played)",
-       caption = "Source: Basketball Reference")
+       caption = "Source: Basketball Reference")+
   coord_flip()
 shooting_percentages_raincloud
 
@@ -444,6 +444,7 @@ minutes_points_scorers_facet
 ## all players?
 per_game_scorers_all <- gamedata |> 
   select(namePlayer, idGame, pts, minutes)
+write_rds(per_game_scorers_all, here("per_game_scorers_all.rds"))
 
 ggplot(data = per_game_scorers_all,
                                        aes(x = minutes,
@@ -461,8 +462,8 @@ minutes_points_scorers_all <- ggplot(data = per_game_scorers_all,
   geom_point(alpha = .05, position = position_jitter(width = 0.5, height = 0.5),
              color = "#E3AF4A")+
   geom_smooth(method = "loess",
-              color = "#D5ADCD", 
-              fill = "#C16B76")+
+              color = "#28798C", 
+              fill = "#E1D7B4")+
   ggdark::dark_theme_bw()
 minutes_points_scorers_all           
 
