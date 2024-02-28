@@ -1,0 +1,631 @@
+nameTeam,conference,metric,score
+Atlanta Hawks,Eastern Conference,fgm,43.578947368421055
+Atlanta Hawks,Eastern Conference,fga,93.6842105263158
+Atlanta Hawks,Eastern Conference,fg3m,13.68421052631579
+Atlanta Hawks,Eastern Conference,fg3a,37.98245614035088
+Atlanta Hawks,Eastern Conference,fg2m,29.894736842105264
+Atlanta Hawks,Eastern Conference,fg2a,55.70175438596491
+Atlanta Hawks,Eastern Conference,tov,12.614035087719298
+Atlanta Hawks,Eastern Conference,pts,121.10526315789474
+Atlanta Hawks,Eastern Conference,blk,4.456140350877193
+Atlanta Hawks,Eastern Conference,stl,7.56140350877193
+Atlanta Hawks,Eastern Conference,ast,26.31578947368421
+Atlanta Hawks,Eastern Conference,treb,45.05263157894737
+Atlanta Hawks,Eastern Conference,fta,24.964912280701753
+Atlanta Hawks,Eastern Conference,ftm,20.263157894736842
+Atlanta Hawks,Eastern Conference,count_wins,25
+Atlanta Hawks,Eastern Conference,n_games,57
+Atlanta Hawks,Eastern Conference,pct3,36.02771362586605
+Atlanta Hawks,Eastern Conference,pct2,53.669291338582674
+Atlanta Hawks,Eastern Conference,pctfg,46.516853932584276
+Atlanta Hawks,Eastern Conference,pctft,81.16654954321855
+Atlanta Hawks,Eastern Conference,ratio_ast_tov,2.086230876216968
+Boston Celtics,Eastern Conference,fgm,43.54385964912281
+Boston Celtics,Eastern Conference,fga,90.01754385964912
+Boston Celtics,Eastern Conference,fg3m,16.333333333333332
+Boston Celtics,Eastern Conference,fg3a,42.6140350877193
+Boston Celtics,Eastern Conference,fg2m,27.210526315789473
+Boston Celtics,Eastern Conference,fg2a,47.40350877192982
+Boston Celtics,Eastern Conference,tov,11.807017543859649
+Boston Celtics,Eastern Conference,pts,120.73684210526316
+Boston Celtics,Eastern Conference,blk,6.526315789473684
+Boston Celtics,Eastern Conference,stl,6.456140350877193
+Boston Celtics,Eastern Conference,ast,26.24561403508772
+Boston Celtics,Eastern Conference,treb,46.91228070175438
+Boston Celtics,Eastern Conference,fta,21.45614035087719
+Boston Celtics,Eastern Conference,ftm,17.31578947368421
+Boston Celtics,Eastern Conference,count_wins,45
+Boston Celtics,Eastern Conference,n_games,57
+Boston Celtics,Eastern Conference,pct3,38.32853025936599
+Boston Celtics,Eastern Conference,pct2,57.40192450037009
+Boston Celtics,Eastern Conference,pctfg,48.37263691288248
+Boston Celtics,Eastern Conference,pctft,80.70318887980376
+Boston Celtics,Eastern Conference,ratio_ast_tov,2.222882615156018
+Brooklyn Nets,Eastern Conference,fgm,41.56140350877193
+Brooklyn Nets,Eastern Conference,fga,90.80701754385964
+Brooklyn Nets,Eastern Conference,fg3m,13.666666666666666
+Brooklyn Nets,Eastern Conference,fg3a,37.578947368421055
+Brooklyn Nets,Eastern Conference,fg2m,27.894736842105264
+Brooklyn Nets,Eastern Conference,fg2a,53.228070175438596
+Brooklyn Nets,Eastern Conference,tov,11.842105263157896
+Brooklyn Nets,Eastern Conference,pts,112.47368421052632
+Brooklyn Nets,Eastern Conference,blk,5.228070175438597
+Brooklyn Nets,Eastern Conference,stl,6.824561403508772
+Brooklyn Nets,Eastern Conference,ast,26.649122807017545
+Brooklyn Nets,Eastern Conference,treb,44.578947368421055
+Brooklyn Nets,Eastern Conference,fta,20.70175438596491
+Brooklyn Nets,Eastern Conference,ftm,15.68421052631579
+Brooklyn Nets,Eastern Conference,count_wins,22
+Brooklyn Nets,Eastern Conference,n_games,57
+Brooklyn Nets,Eastern Conference,pct3,36.367880485527536
+Brooklyn Nets,Eastern Conference,pct2,52.40606460118655
+Brooklyn Nets,Eastern Conference,pctfg,45.76893353941267
+Brooklyn Nets,Eastern Conference,pctft,75.76271186440678
+Brooklyn Nets,Eastern Conference,ratio_ast_tov,2.25037037037037
+Charlotte Hornets,Eastern Conference,fgm,40.6140350877193
+Charlotte Hornets,Eastern Conference,fga,88.50877192982456
+Charlotte Hornets,Eastern Conference,fg3m,12.017543859649123
+Charlotte Hornets,Eastern Conference,fg3a,33.19298245614035
+Charlotte Hornets,Eastern Conference,fg2m,28.596491228070175
+Charlotte Hornets,Eastern Conference,fg2a,55.31578947368421
+Charlotte Hornets,Eastern Conference,tov,13.070175438596491
+Charlotte Hornets,Eastern Conference,pts,108.05263157894737
+Charlotte Hornets,Eastern Conference,blk,4.7368421052631575
+Charlotte Hornets,Eastern Conference,stl,6.807017543859649
+Charlotte Hornets,Eastern Conference,ast,24.842105263157894
+Charlotte Hornets,Eastern Conference,treb,41.19298245614035
+Charlotte Hornets,Eastern Conference,fta,18.87719298245614
+Charlotte Hornets,Eastern Conference,ftm,14.807017543859649
+Charlotte Hornets,Eastern Conference,count_wins,15
+Charlotte Hornets,Eastern Conference,n_games,57
+Charlotte Hornets,Eastern Conference,pct3,36.20507399577167
+Charlotte Hornets,Eastern Conference,pct2,51.69679670155408
+Charlotte Hornets,Eastern Conference,pctfg,45.88701684836472
+Charlotte Hornets,Eastern Conference,pctft,78.43866171003718
+Charlotte Hornets,Eastern Conference,ratio_ast_tov,1.900671140939597
+Chicago Bulls,Eastern Conference,fgm,41.70175438596491
+Chicago Bulls,Eastern Conference,fga,89.35087719298245
+Chicago Bulls,Eastern Conference,fg3m,11.771929824561404
+Chicago Bulls,Eastern Conference,fg3a,32.70175438596491
+Chicago Bulls,Eastern Conference,fg2m,29.92982456140351
+Chicago Bulls,Eastern Conference,fg2a,56.64912280701754
+Chicago Bulls,Eastern Conference,tov,11.736842105263158
+Chicago Bulls,Eastern Conference,pts,111.84210526315789
+Chicago Bulls,Eastern Conference,blk,5.087719298245614
+Chicago Bulls,Eastern Conference,stl,7.7368421052631575
+Chicago Bulls,Eastern Conference,ast,24.526315789473685
+Chicago Bulls,Eastern Conference,treb,43.578947368421055
+Chicago Bulls,Eastern Conference,fta,21
+Chicago Bulls,Eastern Conference,ftm,16.666666666666668
+Chicago Bulls,Eastern Conference,count_wins,27
+Chicago Bulls,Eastern Conference,n_games,57
+Chicago Bulls,Eastern Conference,pct3,35.99785407725322
+Chicago Bulls,Eastern Conference,pct2,52.833694642304124
+Chicago Bulls,Eastern Conference,pctfg,46.671902611427456
+Chicago Bulls,Eastern Conference,pctft,79.36507936507937
+Chicago Bulls,Eastern Conference,ratio_ast_tov,2.089686098654709
+Cleveland Cavaliers,Eastern Conference,fgm,42.535714285714285
+Cleveland Cavaliers,Eastern Conference,fga,88.05357142857143
+Cleveland Cavaliers,Eastern Conference,fg3m,13.160714285714286
+Cleveland Cavaliers,Eastern Conference,fg3a,36.517857142857146
+Cleveland Cavaliers,Eastern Conference,fg2m,29.375
+Cleveland Cavaliers,Eastern Conference,fg2a,51.535714285714285
+Cleveland Cavaliers,Eastern Conference,tov,12.696428571428571
+Cleveland Cavaliers,Eastern Conference,pts,114.44642857142857
+Cleveland Cavaliers,Eastern Conference,blk,4.839285714285714
+Cleveland Cavaliers,Eastern Conference,stl,7.553571428571429
+Cleveland Cavaliers,Eastern Conference,ast,27.410714285714285
+Cleveland Cavaliers,Eastern Conference,treb,44.75
+Cleveland Cavaliers,Eastern Conference,fta,21.071428571428573
+Cleveland Cavaliers,Eastern Conference,ftm,16.214285714285715
+Cleveland Cavaliers,Eastern Conference,count_wins,37
+Cleveland Cavaliers,Eastern Conference,n_games,56
+Cleveland Cavaliers,Eastern Conference,pct3,36.039119804400976
+Cleveland Cavaliers,Eastern Conference,pct2,56.999306999307
+Cleveland Cavaliers,Eastern Conference,pctfg,48.306631514905696
+Cleveland Cavaliers,Eastern Conference,pctft,76.94915254237289
+Cleveland Cavaliers,Eastern Conference,ratio_ast_tov,2.1589310829817157
+Dallas Mavericks,Western Conference,fgm,42.91228070175438
+Dallas Mavericks,Western Conference,fga,89.71929824561404
+Dallas Mavericks,Western Conference,fg3m,15.070175438596491
+Dallas Mavericks,Western Conference,fg3a,40.21052631578947
+Dallas Mavericks,Western Conference,fg2m,27.842105263157894
+Dallas Mavericks,Western Conference,fg2a,49.50877192982456
+Dallas Mavericks,Western Conference,tov,12.035087719298245
+Dallas Mavericks,Western Conference,pts,118.59649122807018
+Dallas Mavericks,Western Conference,blk,4.491228070175438
+Dallas Mavericks,Western Conference,stl,6.701754385964913
+Dallas Mavericks,Western Conference,ast,25.36842105263158
+Dallas Mavericks,Western Conference,treb,42.10526315789474
+Dallas Mavericks,Western Conference,fta,23.403508771929825
+Dallas Mavericks,Western Conference,ftm,17.70175438596491
+Dallas Mavericks,Western Conference,count_wins,33
+Dallas Mavericks,Western Conference,n_games,57
+Dallas Mavericks,Western Conference,pct3,37.478184991274
+Dallas Mavericks,Western Conference,pct2,56.23671155209072
+Dallas Mavericks,Western Conference,pctfg,47.829487680876014
+Dallas Mavericks,Western Conference,pctft,75.63718140929535
+Dallas Mavericks,Western Conference,ratio_ast_tov,2.107871720116618
+Denver Nuggets,Western Conference,fgm,43.741379310344826
+Denver Nuggets,Western Conference,fga,88.91379310344827
+Denver Nuggets,Western Conference,fg3m,11.413793103448276
+Denver Nuggets,Western Conference,fg3a,31.189655172413794
+Denver Nuggets,Western Conference,fg2m,32.327586206896555
+Denver Nuggets,Western Conference,fg2a,57.724137931034484
+Denver Nuggets,Western Conference,tov,11.793103448275861
+Denver Nuggets,Western Conference,pts,114.53448275862068
+Denver Nuggets,Western Conference,blk,5.431034482758621
+Denver Nuggets,Western Conference,stl,6.896551724137931
+Denver Nuggets,Western Conference,ast,29.017241379310345
+Denver Nuggets,Western Conference,treb,44.41379310344828
+Denver Nuggets,Western Conference,fta,20.689655172413794
+Denver Nuggets,Western Conference,ftm,15.637931034482758
+Denver Nuggets,Western Conference,count_wins,39
+Denver Nuggets,Western Conference,n_games,58
+Denver Nuggets,Western Conference,pct3,36.59480375898286
+Denver Nuggets,Western Conference,pct2,56.00358422939068
+Denver Nuggets,Western Conference,pctfg,49.19526856699632
+Denver Nuggets,Western Conference,pctft,75.58333333333333
+Denver Nuggets,Western Conference,ratio_ast_tov,2.460526315789474
+Detroit Pistons,Eastern Conference,fgm,42.26315789473684
+Detroit Pistons,Eastern Conference,fga,89.28070175438596
+Detroit Pistons,Eastern Conference,fg3m,11.280701754385966
+Detroit Pistons,Eastern Conference,fg3a,31.017543859649123
+Detroit Pistons,Eastern Conference,fg2m,30.982456140350877
+Detroit Pistons,Eastern Conference,fg2a,58.26315789473684
+Detroit Pistons,Eastern Conference,tov,14.87719298245614
+Detroit Pistons,Eastern Conference,pts,112.80701754385964
+Detroit Pistons,Eastern Conference,blk,4.894736842105263
+Detroit Pistons,Eastern Conference,stl,6.087719298245614
+Detroit Pistons,Eastern Conference,ast,26.50877192982456
+Detroit Pistons,Eastern Conference,treb,43.49122807017544
+Detroit Pistons,Eastern Conference,fta,21.982456140350877
+Detroit Pistons,Eastern Conference,ftm,17
+Detroit Pistons,Eastern Conference,count_wins,8
+Detroit Pistons,Eastern Conference,n_games,57
+Detroit Pistons,Eastern Conference,pct3,36.36877828054299
+Detroit Pistons,Eastern Conference,pct2,53.17675398976212
+Detroit Pistons,Eastern Conference,pctfg,47.33739438003537
+Detroit Pistons,Eastern Conference,pctft,77.33439744612929
+Detroit Pistons,Eastern Conference,ratio_ast_tov,1.7818396226415094
+Golden State Warriors,Western Conference,fgm,43.464285714285715
+Golden State Warriors,Western Conference,fga,91.92857142857143
+Golden State Warriors,Western Conference,fg3m,15.035714285714286
+Golden State Warriors,Western Conference,fg3a,39.714285714285715
+Golden State Warriors,Western Conference,fg2m,28.428571428571427
+Golden State Warriors,Western Conference,fg2a,52.214285714285715
+Golden State Warriors,Western Conference,tov,13.910714285714286
+Golden State Warriors,Western Conference,pts,119.17857142857143
+Golden State Warriors,Western Conference,blk,4.160714285714286
+Golden State Warriors,Western Conference,stl,6.625
+Golden State Warriors,Western Conference,ast,28.982142857142858
+Golden State Warriors,Western Conference,treb,46.69642857142857
+Golden State Warriors,Western Conference,fta,21.857142857142858
+Golden State Warriors,Western Conference,ftm,17.214285714285715
+Golden State Warriors,Western Conference,count_wins,29.000000000000004
+Golden State Warriors,Western Conference,n_games,56
+Golden State Warriors,Western Conference,pct3,37.85971223021583
+Golden State Warriors,Western Conference,pct2,54.44596443228453
+Golden State Warriors,Western Conference,pctfg,47.28049728049728
+Golden State Warriors,Western Conference,pctft,78.75816993464052
+Golden State Warriors,Western Conference,ratio_ast_tov,2.083440308087291
+Houston Rockets,Western Conference,fgm,41.31578947368421
+Houston Rockets,Western Conference,fga,89.98245614035088
+Houston Rockets,Western Conference,fg3m,12.175438596491228
+Houston Rockets,Western Conference,fg3a,34.59649122807018
+Houston Rockets,Western Conference,fg2m,29.140350877192983
+Houston Rockets,Western Conference,fg2a,55.3859649122807
+Houston Rockets,Western Conference,tov,12.719298245614034
+Houston Rockets,Western Conference,pts,113.14035087719299
+Houston Rockets,Western Conference,blk,4.456140350877193
+Houston Rockets,Western Conference,stl,7.456140350877193
+Houston Rockets,Western Conference,ast,24.736842105263158
+Houston Rockets,Western Conference,treb,45.89473684210526
+Houston Rockets,Western Conference,fta,23.859649122807017
+Houston Rockets,Western Conference,ftm,18.333333333333332
+Houston Rockets,Western Conference,count_wins,25
+Houston Rockets,Western Conference,n_games,57
+Houston Rockets,Western Conference,pct3,35.19269776876268
+Houston Rockets,Western Conference,pct2,52.61324041811847
+Houston Rockets,Western Conference,pctfg,45.915383115617075
+Houston Rockets,Western Conference,pctft,76.83823529411765
+Houston Rockets,Western Conference,ratio_ast_tov,1.9448275862068967
+Indiana Pacers,Eastern Conference,fgm,46.94915254237288
+Indiana Pacers,Eastern Conference,fga,92.37288135593221
+Indiana Pacers,Eastern Conference,fg3m,13.610169491525424
+Indiana Pacers,Eastern Conference,fg3a,35.779661016949156
+Indiana Pacers,Eastern Conference,fg2m,33.33898305084746
+Indiana Pacers,Eastern Conference,fg2a,56.59322033898305
+Indiana Pacers,Eastern Conference,tov,12.864406779661017
+Indiana Pacers,Eastern Conference,pts,123.9322033898305
+Indiana Pacers,Eastern Conference,blk,5.711864406779661
+Indiana Pacers,Eastern Conference,stl,7.88135593220339
+Indiana Pacers,Eastern Conference,ast,31.033898305084747
+Indiana Pacers,Eastern Conference,treb,40.79661016949152
+Indiana Pacers,Eastern Conference,fta,21.084745762711865
+Indiana Pacers,Eastern Conference,ftm,16.423728813559322
+Indiana Pacers,Eastern Conference,count_wins,33
+Indiana Pacers,Eastern Conference,n_games,59
+Indiana Pacers,Eastern Conference,pct3,38.03884414969208
+Indiana Pacers,Eastern Conference,pct2,58.909853249475894
+Indiana Pacers,Eastern Conference,pctfg,50.82568807339449
+Indiana Pacers,Eastern Conference,pctft,77.89389067524115
+Indiana Pacers,Eastern Conference,ratio_ast_tov,2.412384716732543
+LA Clippers,Western Conference,fgm,42.857142857142854
+LA Clippers,Western Conference,fga,87.16071428571429
+LA Clippers,Western Conference,fg3m,13.017857142857142
+LA Clippers,Western Conference,fg3a,33.160714285714285
+LA Clippers,Western Conference,fg2m,29.839285714285715
+LA Clippers,Western Conference,fg2a,54
+LA Clippers,Western Conference,tov,12.339285714285714
+LA Clippers,Western Conference,pts,117.55357142857143
+LA Clippers,Western Conference,blk,5.053571428571429
+LA Clippers,Western Conference,stl,7.928571428571429
+LA Clippers,Western Conference,ast,25.875
+LA Clippers,Western Conference,treb,43.017857142857146
+LA Clippers,Western Conference,fta,22.982142857142858
+LA Clippers,Western Conference,ftm,18.821428571428573
+LA Clippers,Western Conference,count_wins,37
+LA Clippers,Western Conference,n_games,56
+LA Clippers,Western Conference,pct3,39.25686591276252
+LA Clippers,Western Conference,pct2,55.25793650793651
+LA Clippers,Western Conference,pctfg,49.17025199754148
+LA Clippers,Western Conference,pctft,81.8958818958819
+LA Clippers,Western Conference,ratio_ast_tov,2.096960926193922
+Los Angeles Lakers,Western Conference,fgm,43.389830508474574
+Los Angeles Lakers,Western Conference,fga,87.67796610169492
+Los Angeles Lakers,Western Conference,fg3m,11.389830508474576
+Los Angeles Lakers,Western Conference,fg3a,30.796610169491526
+Los Angeles Lakers,Western Conference,fg2m,32
+Los Angeles Lakers,Western Conference,fg2a,56.88135593220339
+Los Angeles Lakers,Western Conference,tov,13.186440677966102
+Los Angeles Lakers,Western Conference,pts,116.91525423728814
+Los Angeles Lakers,Western Conference,blk,5.6440677966101696
+Los Angeles Lakers,Western Conference,stl,7.779661016949152
+Los Angeles Lakers,Western Conference,ast,28.47457627118644
+Los Angeles Lakers,Western Conference,treb,42.57627118644068
+Los Angeles Lakers,Western Conference,fta,24.271186440677965
+Los Angeles Lakers,Western Conference,ftm,18.74576271186441
+Los Angeles Lakers,Western Conference,count_wins,31.000000000000004
+Los Angeles Lakers,Western Conference,n_games,59
+Los Angeles Lakers,Western Conference,pct3,36.98403962575674
+Los Angeles Lakers,Western Conference,pct2,56.25744934445768
+Los Angeles Lakers,Western Conference,pctfg,49.48772472453121
+Los Angeles Lakers,Western Conference,pctft,77.23463687150839
+Los Angeles Lakers,Western Conference,ratio_ast_tov,2.159383033419023
+Memphis Grizzlies,Western Conference,fgm,38.63793103448276
+Memphis Grizzlies,Western Conference,fga,87.84482758620689
+Memphis Grizzlies,Western Conference,fg3m,13.5
+Memphis Grizzlies,Western Conference,fg3a,38.87931034482759
+Memphis Grizzlies,Western Conference,fg2m,25.137931034482758
+Memphis Grizzlies,Western Conference,fg2a,48.96551724137931
+Memphis Grizzlies,Western Conference,tov,13.879310344827585
+Memphis Grizzlies,Western Conference,pts,106.5
+Memphis Grizzlies,Western Conference,blk,6.068965517241379
+Memphis Grizzlies,Western Conference,stl,7.793103448275862
+Memphis Grizzlies,Western Conference,ast,25.20689655172414
+Memphis Grizzlies,Western Conference,treb,41.63793103448276
+Memphis Grizzlies,Western Conference,fta,20.67241379310345
+Memphis Grizzlies,Western Conference,ftm,15.724137931034482
+Memphis Grizzlies,Western Conference,count_wins,20
+Memphis Grizzlies,Western Conference,n_games,58
+Memphis Grizzlies,Western Conference,pct3,34.72283813747228
+Memphis Grizzlies,Western Conference,pct2,51.33802816901409
+Memphis Grizzlies,Western Conference,pctfg,43.98429833169775
+Memphis Grizzlies,Western Conference,pctft,76.06338615512927
+Memphis Grizzlies,Western Conference,ratio_ast_tov,1.8161490683229815
+Miami Heat,Eastern Conference,fgm,39.75438596491228
+Miami Heat,Eastern Conference,fga,85.75438596491227
+Miami Heat,Eastern Conference,fg3m,12.421052631578947
+Miami Heat,Eastern Conference,fg3a,33.333333333333336
+Miami Heat,Eastern Conference,fg2m,27.333333333333332
+Miami Heat,Eastern Conference,fg2a,52.421052631578945
+Miami Heat,Eastern Conference,tov,12.210526315789474
+Miami Heat,Eastern Conference,pts,110.6842105263158
+Miami Heat,Eastern Conference,blk,3.280701754385965
+Miami Heat,Eastern Conference,stl,7.385964912280702
+Miami Heat,Eastern Conference,ast,25.859649122807017
+Miami Heat,Eastern Conference,treb,42.24561403508772
+Miami Heat,Eastern Conference,fta,22.859649122807017
+Miami Heat,Eastern Conference,ftm,18.75438596491228
+Miami Heat,Eastern Conference,count_wins,32
+Miami Heat,Eastern Conference,n_games,57
+Miami Heat,Eastern Conference,pct3,37.26315789473684
+Miami Heat,Eastern Conference,pct2,52.14190093708166
+Miami Heat,Eastern Conference,pctfg,46.35842880523732
+Miami Heat,Eastern Conference,pctft,82.04144282425173
+Miami Heat,Eastern Conference,ratio_ast_tov,2.117816091954023
+Milwaukee Bucks,Eastern Conference,fgm,44
+Milwaukee Bucks,Eastern Conference,fga,89.03448275862068
+Milwaukee Bucks,Eastern Conference,fg3m,14.241379310344827
+Milwaukee Bucks,Eastern Conference,fg3a,37.86206896551724
+Milwaukee Bucks,Eastern Conference,fg2m,29.75862068965517
+Milwaukee Bucks,Eastern Conference,fg2a,51.172413793103445
+Milwaukee Bucks,Eastern Conference,tov,12.517241379310345
+Milwaukee Bucks,Eastern Conference,pts,121.79310344827586
+Milwaukee Bucks,Eastern Conference,blk,5.258620689655173
+Milwaukee Bucks,Eastern Conference,stl,6.948275862068965
+Milwaukee Bucks,Eastern Conference,ast,26.775862068965516
+Milwaukee Bucks,Eastern Conference,treb,44.12068965517241
+Milwaukee Bucks,Eastern Conference,fta,25.43103448275862
+Milwaukee Bucks,Eastern Conference,ftm,19.551724137931036
+Milwaukee Bucks,Eastern Conference,count_wins,37
+Milwaukee Bucks,Eastern Conference,n_games,58
+Milwaukee Bucks,Eastern Conference,pct3,37.613843351548276
+Milwaukee Bucks,Eastern Conference,pct2,58.153638814016176
+Milwaukee Bucks,Eastern Conference,pctfg,49.41905499612704
+Milwaukee Bucks,Eastern Conference,pctft,76.88135593220339
+Milwaukee Bucks,Eastern Conference,ratio_ast_tov,2.1391184573002753
+Minnesota Timberwolves,Western Conference,fgm,41.29824561403509
+Minnesota Timberwolves,Western Conference,fga,84.57894736842105
+Minnesota Timberwolves,Western Conference,fg3m,12.56140350877193
+Minnesota Timberwolves,Western Conference,fg3a,32.1578947368421
+Minnesota Timberwolves,Western Conference,fg2m,28.736842105263158
+Minnesota Timberwolves,Western Conference,fg2a,52.421052631578945
+Minnesota Timberwolves,Western Conference,tov,13.929824561403509
+Minnesota Timberwolves,Western Conference,pts,113.6140350877193
+Minnesota Timberwolves,Western Conference,blk,5.87719298245614
+Minnesota Timberwolves,Western Conference,stl,7.491228070175438
+Minnesota Timberwolves,Western Conference,ast,26.29824561403509
+Minnesota Timberwolves,Western Conference,treb,44.12280701754386
+Minnesota Timberwolves,Western Conference,fta,23.57894736842105
+Minnesota Timberwolves,Western Conference,ftm,18.45614035087719
+Minnesota Timberwolves,Western Conference,count_wins,40
+Minnesota Timberwolves,Western Conference,n_games,57
+Minnesota Timberwolves,Western Conference,pct3,39.06164757228587
+Minnesota Timberwolves,Western Conference,pct2,54.81927710843374
+Minnesota Timberwolves,Western Conference,pctfg,48.82804397427919
+Minnesota Timberwolves,Western Conference,pctft,78.27380952380952
+Minnesota Timberwolves,Western Conference,ratio_ast_tov,1.8879093198992445
+New Orleans Pelicans,Western Conference,fgm,42.91379310344828
+New Orleans Pelicans,Western Conference,fga,88.22413793103448
+New Orleans Pelicans,Western Conference,fg3m,12.137931034482758
+New Orleans Pelicans,Western Conference,fg3a,32.36206896551724
+New Orleans Pelicans,Western Conference,fg2m,30.775862068965516
+New Orleans Pelicans,Western Conference,fg2a,55.86206896551724
+New Orleans Pelicans,Western Conference,tov,12.689655172413794
+New Orleans Pelicans,Western Conference,pts,116.08620689655173
+New Orleans Pelicans,Western Conference,blk,4.896551724137931
+New Orleans Pelicans,Western Conference,stl,8.431034482758621
+New Orleans Pelicans,Western Conference,ast,27.051724137931036
+New Orleans Pelicans,Western Conference,treb,44.44827586206897
+New Orleans Pelicans,Western Conference,fta,23.74137931034483
+New Orleans Pelicans,Western Conference,ftm,18.120689655172413
+New Orleans Pelicans,Western Conference,count_wins,34
+New Orleans Pelicans,Western Conference,n_games,58
+New Orleans Pelicans,Western Conference,pct3,37.50665956313266
+New Orleans Pelicans,Western Conference,pct2,55.092592592592595
+New Orleans Pelicans,Western Conference,pctfg,48.64178229431308
+New Orleans Pelicans,Western Conference,pctft,76.32534495279593
+New Orleans Pelicans,Western Conference,ratio_ast_tov,2.1317934782608696
+New York Knicks,Eastern Conference,fgm,41.51724137931034
+New York Knicks,Eastern Conference,fga,88.94827586206897
+New York Knicks,Eastern Conference,fg3m,13.03448275862069
+New York Knicks,Eastern Conference,fg3a,35.293103448275865
+New York Knicks,Eastern Conference,fg2m,28.482758620689655
+New York Knicks,Eastern Conference,fg2a,53.6551724137931
+New York Knicks,Eastern Conference,tov,12.413793103448276
+New York Knicks,Eastern Conference,pts,114.17241379310344
+New York Knicks,Eastern Conference,blk,3.896551724137931
+New York Knicks,Eastern Conference,stl,7.293103448275862
+New York Knicks,Eastern Conference,ast,23.74137931034483
+New York Knicks,Eastern Conference,treb,45.689655172413794
+New York Knicks,Eastern Conference,fta,23.017241379310345
+New York Knicks,Eastern Conference,ftm,18.103448275862068
+New York Knicks,Eastern Conference,count_wins,35
+New York Knicks,Eastern Conference,n_games,58
+New York Knicks,Eastern Conference,pct3,36.93209574987787
+New York Knicks,Eastern Conference,pct2,53.08483290488432
+New York Knicks,Eastern Conference,pctfg,46.675712347354136
+New York Knicks,Eastern Conference,pctft,78.65168539325842
+New York Knicks,Eastern Conference,ratio_ast_tov,1.9125
+Oklahoma City Thunder,Western Conference,fgm,44.8421052631579
+Oklahoma City Thunder,Western Conference,fga,89.24561403508773
+Oklahoma City Thunder,Western Conference,fg3m,13.596491228070175
+Oklahoma City Thunder,Western Conference,fg3a,34.12280701754386
+Oklahoma City Thunder,Western Conference,fg2m,31.24561403508772
+Oklahoma City Thunder,Western Conference,fg2a,55.12280701754386
+Oklahoma City Thunder,Western Conference,tov,11.614035087719298
+Oklahoma City Thunder,Western Conference,pts,121.45614035087719
+Oklahoma City Thunder,Western Conference,blk,6.807017543859649
+Oklahoma City Thunder,Western Conference,stl,8.157894736842104
+Oklahoma City Thunder,Western Conference,ast,27.29824561403509
+Oklahoma City Thunder,Western Conference,treb,41.49122807017544
+Oklahoma City Thunder,Western Conference,fta,21.87719298245614
+Oklahoma City Thunder,Western Conference,ftm,18.17543859649123
+Oklahoma City Thunder,Western Conference,count_wins,40
+Oklahoma City Thunder,Western Conference,n_games,57
+Oklahoma City Thunder,Western Conference,pct3,39.84575835475577
+Oklahoma City Thunder,Western Conference,pct2,56.683640992998086
+Oklahoma City Thunder,Western Conference,pctfg,50.24572439551799
+Oklahoma City Thunder,Western Conference,pctft,83.0793905372895
+Oklahoma City Thunder,Western Conference,ratio_ast_tov,2.3504531722054383
+Orlando Magic,Eastern Conference,fgm,40.706896551724135
+Orlando Magic,Eastern Conference,fga,86.01724137931035
+Orlando Magic,Eastern Conference,fg3m,11.017241379310345
+Orlando Magic,Eastern Conference,fg3a,31.137931034482758
+Orlando Magic,Eastern Conference,fg2m,29.689655172413794
+Orlando Magic,Eastern Conference,fg2a,54.87931034482759
+Orlando Magic,Eastern Conference,tov,13.810344827586206
+Orlando Magic,Eastern Conference,pts,111.46551724137932
+Orlando Magic,Eastern Conference,blk,5.310344827586207
+Orlando Magic,Eastern Conference,stl,8.10344827586207
+Orlando Magic,Eastern Conference,ast,24.862068965517242
+Orlando Magic,Eastern Conference,treb,42.87931034482759
+Orlando Magic,Eastern Conference,fta,25.29310344827586
+Orlando Magic,Eastern Conference,ftm,19.03448275862069
+Orlando Magic,Eastern Conference,count_wins,32
+Orlando Magic,Eastern Conference,n_games,58
+Orlando Magic,Eastern Conference,pct3,35.38205980066445
+Orlando Magic,Eastern Conference,pct2,54.09990574929312
+Orlando Magic,Eastern Conference,pctfg,47.32411304870715
+Orlando Magic,Eastern Conference,pctft,75.25562372188139
+Orlando Magic,Eastern Conference,ratio_ast_tov,1.8002496878901375
+Philadelphia 76ers,Eastern Conference,fgm,42.26315789473684
+Philadelphia 76ers,Eastern Conference,fga,89.63157894736842
+Philadelphia 76ers,Eastern Conference,fg3m,11.403508771929825
+Philadelphia 76ers,Eastern Conference,fg3a,31.719298245614034
+Philadelphia 76ers,Eastern Conference,fg2m,30.859649122807017
+Philadelphia 76ers,Eastern Conference,fg2a,57.91228070175438
+Philadelphia 76ers,Eastern Conference,tov,11.333333333333334
+Philadelphia 76ers,Eastern Conference,pts,117.33333333333333
+Philadelphia 76ers,Eastern Conference,blk,5.771929824561403
+Philadelphia 76ers,Eastern Conference,stl,8.596491228070175
+Philadelphia 76ers,Eastern Conference,ast,24.75438596491228
+Philadelphia 76ers,Eastern Conference,treb,43.19298245614035
+Philadelphia 76ers,Eastern Conference,fta,25.82456140350877
+Philadelphia 76ers,Eastern Conference,ftm,21.403508771929825
+Philadelphia 76ers,Eastern Conference,count_wins,33
+Philadelphia 76ers,Eastern Conference,n_games,57
+Philadelphia 76ers,Eastern Conference,pct3,35.95132743362832
+Philadelphia 76ers,Eastern Conference,pct2,53.28688276279915
+Philadelphia 76ers,Eastern Conference,pctfg,47.152084556664704
+Philadelphia 76ers,Eastern Conference,pctft,82.8804347826087
+Philadelphia 76ers,Eastern Conference,ratio_ast_tov,2.1842105263157894
+Phoenix Suns,Western Conference,fgm,42.56896551724138
+Phoenix Suns,Western Conference,fga,85.82758620689656
+Phoenix Suns,Western Conference,fg3m,11.948275862068966
+Phoenix Suns,Western Conference,fg3a,31.637931034482758
+Phoenix Suns,Western Conference,fg2m,30.620689655172413
+Phoenix Suns,Western Conference,fg2a,54.189655172413794
+Phoenix Suns,Western Conference,tov,14.017241379310345
+Phoenix Suns,Western Conference,pts,117.48275862068965
+Phoenix Suns,Western Conference,blk,6.120689655172414
+Phoenix Suns,Western Conference,stl,7.568965517241379
+Phoenix Suns,Western Conference,ast,26.689655172413794
+Phoenix Suns,Western Conference,treb,43.58620689655172
+Phoenix Suns,Western Conference,fta,25.189655172413794
+Phoenix Suns,Western Conference,ftm,20.396551724137932
+Phoenix Suns,Western Conference,count_wins,34
+Phoenix Suns,Western Conference,n_games,58
+Phoenix Suns,Western Conference,pct3,37.76566757493188
+Phoenix Suns,Western Conference,pct2,56.5065224307986
+Phoenix Suns,Western Conference,pctfg,49.59823222177581
+Phoenix Suns,Western Conference,pctft,80.9719370294319
+Phoenix Suns,Western Conference,ratio_ast_tov,1.9040590405904059
+Portland Trail Blazers,Western Conference,fgm,39.25
+Portland Trail Blazers,Western Conference,fga,89.57142857142857
+Portland Trail Blazers,Western Conference,fg3m,11.571428571428571
+Portland Trail Blazers,Western Conference,fg3a,33.232142857142854
+Portland Trail Blazers,Western Conference,fg2m,27.678571428571427
+Portland Trail Blazers,Western Conference,fg2a,56.339285714285715
+Portland Trail Blazers,Western Conference,tov,14
+Portland Trail Blazers,Western Conference,pts,107.44642857142857
+Portland Trail Blazers,Western Conference,blk,4.5
+Portland Trail Blazers,Western Conference,stl,7.857142857142857
+Portland Trail Blazers,Western Conference,ast,22.535714285714285
+Portland Trail Blazers,Western Conference,treb,41.69642857142857
+Portland Trail Blazers,Western Conference,fta,21.910714285714285
+Portland Trail Blazers,Western Conference,ftm,17.375
+Portland Trail Blazers,Western Conference,count_wins,15
+Portland Trail Blazers,Western Conference,n_games,56
+Portland Trail Blazers,Western Conference,pct3,34.81998925308974
+Portland Trail Blazers,Western Conference,pct2,49.1283676703645
+Portland Trail Blazers,Western Conference,pctfg,43.81977671451356
+Portland Trail Blazers,Western Conference,pctft,79.29910350448249
+Portland Trail Blazers,Western Conference,ratio_ast_tov,1.6096938775510203
+Sacramento Kings,Western Conference,fgm,44.03508771929825
+Sacramento Kings,Western Conference,fga,90.82456140350877
+Sacramento Kings,Western Conference,fg3m,14.719298245614034
+Sacramento Kings,Western Conference,fg3a,39.64912280701754
+Sacramento Kings,Western Conference,fg2m,29.31578947368421
+Sacramento Kings,Western Conference,fg2a,51.175438596491226
+Sacramento Kings,Western Conference,tov,12.771929824561404
+Sacramento Kings,Western Conference,pts,118.49122807017544
+Sacramento Kings,Western Conference,blk,3.9649122807017543
+Sacramento Kings,Western Conference,stl,7.2631578947368425
+Sacramento Kings,Western Conference,ast,28.68421052631579
+Sacramento Kings,Western Conference,treb,43.1578947368421
+Sacramento Kings,Western Conference,fta,21.45614035087719
+Sacramento Kings,Western Conference,ftm,15.701754385964913
+Sacramento Kings,Western Conference,count_wins,33
+Sacramento Kings,Western Conference,n_games,57
+Sacramento Kings,Western Conference,pct3,37.123893805309734
+Sacramento Kings,Western Conference,pct2,57.284881727802535
+Sacramento Kings,Western Conference,pctfg,48.483677805678965
+Sacramento Kings,Western Conference,pctft,73.1807031888798
+Sacramento Kings,Western Conference,ratio_ast_tov,2.245879120879121
+San Antonio Spurs,Western Conference,fgm,42
+San Antonio Spurs,Western Conference,fga,91.32758620689656
+San Antonio Spurs,Western Conference,fg3m,12.39655172413793
+San Antonio Spurs,Western Conference,fg3a,36.189655172413794
+San Antonio Spurs,Western Conference,fg2m,29.603448275862068
+San Antonio Spurs,Western Conference,fg2a,55.13793103448276
+San Antonio Spurs,Western Conference,tov,14.310344827586206
+San Antonio Spurs,Western Conference,pts,112.05172413793103
+San Antonio Spurs,Western Conference,blk,6.155172413793103
+San Antonio Spurs,Western Conference,stl,7.344827586206897
+San Antonio Spurs,Western Conference,ast,29.586206896551722
+San Antonio Spurs,Western Conference,treb,43.293103448275865
+San Antonio Spurs,Western Conference,fta,20.06896551724138
+San Antonio Spurs,Western Conference,ftm,15.655172413793103
+San Antonio Spurs,Western Conference,count_wins,11
+San Antonio Spurs,Western Conference,n_games,58
+San Antonio Spurs,Western Conference,pct3,34.254406860409716
+San Antonio Spurs,Western Conference,pct2,53.68980612883052
+San Antonio Spurs,Western Conference,pctfg,45.98829526146876
+San Antonio Spurs,Western Conference,pctft,78.00687285223367
+San Antonio Spurs,Western Conference,ratio_ast_tov,2.067469879518072
+Toronto Raptors,Eastern Conference,fgm,43.06896551724138
+Toronto Raptors,Eastern Conference,fga,90.08620689655173
+Toronto Raptors,Eastern Conference,fg3m,11.706896551724139
+Toronto Raptors,Eastern Conference,fg3a,32.672413793103445
+Toronto Raptors,Eastern Conference,fg2m,31.362068965517242
+Toronto Raptors,Eastern Conference,fg2a,57.41379310344828
+Toronto Raptors,Eastern Conference,tov,12.775862068965518
+Toronto Raptors,Eastern Conference,pts,114.43103448275862
+Toronto Raptors,Eastern Conference,blk,4.9655172413793105
+Toronto Raptors,Eastern Conference,stl,7.482758620689655
+Toronto Raptors,Eastern Conference,ast,29.310344827586206
+Toronto Raptors,Eastern Conference,treb,43.689655172413794
+Toronto Raptors,Eastern Conference,fta,22.086206896551722
+Toronto Raptors,Eastern Conference,ftm,16.586206896551722
+Toronto Raptors,Eastern Conference,count_wins,22
+Toronto Raptors,Eastern Conference,n_games,58
+Toronto Raptors,Eastern Conference,pct3,35.83113456464381
+Toronto Raptors,Eastern Conference,pct2,54.62462462462462
+Toronto Raptors,Eastern Conference,pctfg,47.80861244019138
+Toronto Raptors,Eastern Conference,pctft,75.0975800156128
+Toronto Raptors,Eastern Conference,ratio_ast_tov,2.294197031039136
+Utah Jazz,Western Conference,fgm,42.775862068965516
+Utah Jazz,Western Conference,fga,90.8103448275862
+Utah Jazz,Western Conference,fg3m,13.310344827586206
+Utah Jazz,Western Conference,fg3a,37.13793103448276
+Utah Jazz,Western Conference,fg2m,29.46551724137931
+Utah Jazz,Western Conference,fg2a,53.672413793103445
+Utah Jazz,Western Conference,tov,15.224137931034482
+Utah Jazz,Western Conference,pts,118.01724137931035
+Utah Jazz,Western Conference,blk,5.948275862068965
+Utah Jazz,Western Conference,stl,6.758620689655173
+Utah Jazz,Western Conference,ast,28.5
+Utah Jazz,Western Conference,treb,46.63793103448276
+Utah Jazz,Western Conference,fta,23.24137931034483
+Utah Jazz,Western Conference,ftm,19.155172413793103
+Utah Jazz,Western Conference,count_wins,27
+Utah Jazz,Western Conference,n_games,58
+Utah Jazz,Western Conference,pct3,35.840297121634165
+Utah Jazz,Western Conference,pct2,54.89881143591391
+Utah Jazz,Western Conference,pctfg,47.104613632048604
+Utah Jazz,Western Conference,pctft,82.41839762611275
+Utah Jazz,Western Conference,ratio_ast_tov,1.8720271800679502
+Washington Wizards,Eastern Conference,fgm,43.14035087719298
+Washington Wizards,Eastern Conference,fga,91.71929824561404
+Washington Wizards,Eastern Conference,fg3m,12.175438596491228
+Washington Wizards,Eastern Conference,fg3a,34.85964912280702
+Washington Wizards,Eastern Conference,fg2m,30.964912280701753
+Washington Wizards,Eastern Conference,fg2a,56.85964912280702
+Washington Wizards,Eastern Conference,tov,13.456140350877194
+Washington Wizards,Eastern Conference,pts,114.36842105263158
+Washington Wizards,Eastern Conference,blk,5.245614035087719
+Washington Wizards,Eastern Conference,stl,7.87719298245614
+Washington Wizards,Eastern Conference,ast,28.017543859649123
+Washington Wizards,Eastern Conference,treb,40.75438596491228
+Washington Wizards,Eastern Conference,fta,20.859649122807017
+Washington Wizards,Eastern Conference,ftm,15.912280701754385
+Washington Wizards,Eastern Conference,count_wins,9
+Washington Wizards,Eastern Conference,n_games,57
+Washington Wizards,Eastern Conference,pct3,34.927025666834425
+Washington Wizards,Eastern Conference,pct2,54.45850046282012
+Washington Wizards,Eastern Conference,pctfg,47.035195103289965
+Washington Wizards,Eastern Conference,pctft,76.282590412111
+Washington Wizards,Eastern Conference,ratio_ast_tov,2.0821382007822686

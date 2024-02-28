@@ -196,6 +196,7 @@ all_teams_averages <- season_average_data |>
                names_to = "metric",
                values_to = "score")
 write_rds(all_teams_averages, here("all_teams_averages.rds"))
+write_csv(all_teams_averages, here("all_teams_averages.csv"))
 
 # |> 
 #   group_by(metric) |> 
