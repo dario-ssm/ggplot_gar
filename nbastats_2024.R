@@ -43,6 +43,7 @@ season_average_data <- gamedata |>
   mutate(conference = case_when(nameTeam %in% eastern_conference ~ "Eastern Conference",
                                 nameTeam %in% western_conference ~ "Western Conference"))
 write_rds(season_average_data, here("season_average_data.rds"))
+write_csv(season_average_data, here("season_average_data.csv"))
 
 ## 1. Distribution plots ----
 

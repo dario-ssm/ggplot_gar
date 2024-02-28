@@ -2,8 +2,7 @@
 title: "Data Visualization in R"
 subtitle: "Asignatura de INICIACIÓN PRÁCTICA A LA GESTIÓN DE DATOS AMBIENTALES CON R (100303)"
 date: "`r Sys.Date()`"
-output: 
-  html: gfm
+format: gfm
 execute: 
   warning: false
   echo: false  
