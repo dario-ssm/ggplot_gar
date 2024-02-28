@@ -32,9 +32,9 @@ Y cargamos las diferentes bases de datos que vamos a utilizar del repositorio.
 
 ```{r}
 players_data_pergame <- read_rds(here("players_data_pergame.rds"))
-teams_vert_data <- read_rds(here("all_teams_averages.rds"))
+all_teams_averages <- read_rds(here("all_teams_averages.rds"))
 season_average_data <- read_rds(here("season_average_data.rds"))
-
+per_game_scorers_all <- read_rds(here("per_game_scorers_all.rds"))
 ```
 
 # 3. Estudiar distribuciones de nuestras variables
@@ -279,7 +279,7 @@ clas_teams_color_threes
 Vamos a utilizar la base de datos `all_teams_averages` :
 
 ```{r}
-DT::datatable(all_teams_averages)
+head(all_teams_averages)
 ```
 
 A continuación, vamos a representar un gráfico de barras que represente el porcentaje de triples en cada una de las conferencias, donde los errores de las barras sean la desviación típica. Para ello, primero vamos a filtrar la desviación típica para el porcentaje de triples en cada conferencia.
@@ -335,7 +335,7 @@ Volvamos a utilizar la base de datos de `all_teams_averages` . Vamos a dibujar u
 ```{r}
 all_percentages <- all_teams_averages |>
   filter(metric %in% c("pct3", "pct2", "pctfg", "pctft"))
-DT::datatable(all_percentages)
+head(all_percentages)
 ```
 
 Como vemos, tenemos una variable x llamada `metric` y otra variable y llamada `score`. El boxplot sería:
