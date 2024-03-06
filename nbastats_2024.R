@@ -418,7 +418,7 @@ per_game_scorers <- gamedata |>
                            "Donovan Mitchell", "Kevin Durant", "Jalen Brunson",
                            "Stephen Curry", "Devin Booker", "Jayson Tatum")) |> 
   select(namePlayer, idGame, dateGame, pts, minutes)
-
+write_csv(per_game_scorers, here("per_game_scorers.csv"))
 
 minutes_points_scorers <- ggplot(data = per_game_scorers,
                                     aes(x = minutes,
