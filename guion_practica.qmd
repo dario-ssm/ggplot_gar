@@ -5,13 +5,10 @@ date: "`r Sys.Date()`"
 format: gfm
 execute: 
   warning: false
-  echo: false  
 editor: visual
 ---
 
-# 1. Introducción a la sintaxis de `ggplot2`
-
-# 2. Datos que utilizaremos en el guión
+# 1. Datos que utilizaremos en el guión
 
 Para esta práctica utilizamos datos de la NBA de la temporada 2023/24 (en curso) a través del paquete `nbastatR` . Será necesario también tener instalados los paquetes de `tidyverse` y algunos paquetes adicionales para ayudar a la visualización: `ggdist` , `ggrepel`, `cowplot` , `ggthemes` y `ggdark` .
 
@@ -37,7 +34,7 @@ season_average_data <- read_rds(here("season_average_data.rds"))
 per_game_scorers_all <- read_rds(here("per_game_scorers_all.rds"))
 ```
 
-# 3. Estudiar distribuciones de nuestras variables
+# 2. Estudiar distribuciones de nuestras variables
 
 Estudiar la composciión y distribución de nuestras variables es fundamental antes de cualquier otro análisis. Esto implica ver qué rango de valores adopta, qué frecuencia toma cada valor y qué función de distribución se ajusta mejor a nuestros datos (ej. normal, poisson, log-normal, etc).
 
@@ -206,7 +203,7 @@ pct_all <- plot_grid(my_title,
 pct_all
 ```
 
-# 4. Comparar variables categóricas
+# 3. Comparar variables categóricas
 
 Para comparar variables categóricas podemos utilizar distintos tipos de gráficas. Las más comunes son *gráficos de barras* o *barplots*, *gráficos de caja-bigotes* o *boxplots* y sus variantes.
 
@@ -458,7 +455,7 @@ shooting_percentages_raincloud
 
 ```
 
-# 5. Comparar variables cuantitativas
+# 4. Comparar variables cuantitativas
 
 En la mayoría de estudios, sin embargo, lo que haremos será visualizar relaciones entre variables cuantitativas, lo que se conoce en general como *regresiones*.
 
@@ -474,7 +471,7 @@ Cabe esperar que tengan una correlación positiva (a más acierto con los tiros,
 
 -   Puntos: con la geometría `geom_point()`
 
--   Tendencia: con la geometría `geom_smooth()`, ya sea con un argumento `method = "lm"` para una tendencia lineal (***l**inear **m**odel*) o una variable llamada *loess*.
+-   Tendencia: con la geometría `geom_smooth()`
 
 ```{r}
 
@@ -482,8 +479,8 @@ pctfg_countwins_scatter <- ggplot(data = season_average_data,
                                   aes(x = pctfg,
                                       y = count_wins))+
   geom_point(color = "darkgrey")+
-  theme_few()+
-  geom_smooth(method = "lm")
+  geom_smooth()+
+  theme_few()
 pctfg_countwins_scatter
 
 ```
@@ -494,6 +491,10 @@ Vamos a intentar arreglar el gráfico:
 
 -   Vamos a nombrar los puntos más relevantes para saber a qué equipo corresponden los puntos más destacados usando `ggrepel::`
 
+-   Vamos a dividir el gráfico por conferencia
+
+-   Vamos a trazar una línea de tendencia lineal con `method = "lm"` dentro de `geom_smooth()`
+
 ```{r}
 ggplot(data = season_average_data,
                                   aes(x = pctfg,
@@ -501,12 +502,39 @@ ggplot(data = season_average_data,
   geom_point(aes(size = fg3a), alpha = .7, color = "darkcyan")+
   geom_smooth(method = "lm")+
   theme_bw()+
+  facet_wrap(~conference)+
   labs(x = "% Acierto en tiros de campo",
        y = "Número de victorias",
        size = "Triples intentados")+
   ggrepel::geom_label_repel(aes(label = nameTeam),
                             fill = "#7FD3C3", 
                             alpha = .5)
+```
+
+Otra alternativa para diferenciar por conferencia sin separar las gráfiacs es dibujar dos líneas de tendencia distintas diferenciadas por color. Vamos además a ponerle la paleta que queramos.
+
+```{r}
+ggplot(data = season_average_data,
+       aes(x = pctfg,
+           y = count_wins))+
+  geom_smooth(method = "lm",
+              aes(color = conference,
+                  fill = conference))+
+  geom_point(aes(size = fg3a), 
+             alpha = .7, 
+             color = "gray")+
+  scale_color_manual(values = c("#CF8143","#0E4D62"))+
+  scale_fill_manual(values = c("#CF8143","#0E4D62"))+
+  theme_bw()+
+  labs(x = "% Acierto en tiros de campo",
+       y = "Número de victorias",
+       size = "Triples intentados por partido")+
+  ggrepel::geom_label_repel(aes(label = nameTeam),
+                            fill = "gray75", 
+                            alpha = 1,
+                            max.overlaps = 8)+
+  theme(legend.position = "bottom")
+  
 ```
 
 ### Ejercicio 1. ¿hay relación entre tiros intentados de triple y número de victorias?
@@ -602,3 +630,17 @@ minutes_points_scorers_all <- ggplot(data = per_game_scorers_all,
 minutes_points_scorers_all           
 
 ```
+
+# 5. Recursos web para visualización
+
+-   [Data to Viz](https://www.data-to-viz.com/) : a partir de cada tipo de datos, sugiere qué estrategia de visualización utilizar
+
+-   [R Graph Gallery](https://r-graph-gallery.com/): web con mnultitud de gráficas y el código que las genera
+
+-   [R Charts](https://r-charts.com/): similar a la anterior
+
+-   [R For Data Science](https://r4ds.hadley.nz/data-visualize.html) (book): Capítulo 3 sobre visualización de datos del libro de Hadley Wickham
+
+-   [Coolors](https://coolors.co/): Web para generar paletas de colores
+
+-   [Datanovia R Color Palettes](https://www.datanovia.com/en/blog/top-r-color-palettes-to-know-for-great-data-visualization/)

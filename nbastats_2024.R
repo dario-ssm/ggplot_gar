@@ -362,7 +362,7 @@ players_data_pergame <- gamedata |>
   summarise_all(mean)
 
 write_rds(players_data_pergame, here("players_data_pergame.rds"))
-
+write_csv(players_data_pergame, here("players_data_pergame.csv"))
 
 # draw a line in slope = 1
 ggplot(data = players_data_pergame,
