@@ -16,6 +16,8 @@ En estas sesiones veremos:
          a) Mapas de puntos: visualización de terremotos en la erupción de Cumbre Vieja (2021).
          b) Mapa de polígonos y capas: visualización de datos demográficos (`MapSpain`)
 
-![](https://github.com/dario-ssm/ggplot_gar/blob/main/pooled_suitability50_present_map.png)
+![](https://github.com/dario-ssm/ggplot_gar/blob/main/guion_practica_files/figure-commonmark/unnamed-chunk-9-1.png)
 
-![](https://github.com/dario-ssm/ggplot_gar/blob/main/hotter_better_sizes_ctmax.png)
+![](https://github.com/dario-ssm/ggplot_gar/blob/main/guion_practica_files/figure-commonmark/unnamed-chunk-20-1.png)
+
+![](https://github.com/dario-ssm/ggplot_gar/blob/main/guion_practica_files/figure-commonmark/unnamed-chunk-26-1.png)
